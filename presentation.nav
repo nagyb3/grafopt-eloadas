@@ -1,0 +1,16 @@
+\select@language {magyar} \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {1}{1}}
+\select@language {magyar} \headcommand {\beamer@sectionpages {1}{1}}
+\select@language {magyar} \headcommand {\beamer@subsectionpages {1}{1}}
+\select@language {magyar} \headcommand {\sectionentry {1}{Bevezetés}{2}{Bevezetés}{0}}
+\select@language {magyar} \headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {2}{2}}
+\select@language {magyar} \headcommand {\slideentry {1}{0}{2}{3/5}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {3}{5}}
+\select@language {magyar} \headcommand {\slideentry {1}{0}{3}{6/6}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@partpages {1}{6}}
+\headcommand {\beamer@subsectionpages {2}{6}}
+\headcommand {\beamer@sectionpages {2}{6}}
+\headcommand {\beamer@documentpages {6}}
+\headcommand {\gdef \inserttotalframenumber {4}}
