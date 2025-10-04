@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.18)  4 OCT 2025 21:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.18)  4 OCT 2025 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1149,15 +1149,20 @@ Overfull \hbox (26.13011pt too wide) has occurred while \output is active
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Overfull \hbox (166.2118pt too wide) in paragraph at lines 31--31
+Overfull \hbox (166.2118pt too wide) in paragraph at lines 38--38
  [][][][]  
  []
 
 
-Overfull \hbox (26.13011pt too wide) in paragraph at lines 31--31
+Overfull \hbox (26.13011pt too wide) in paragraph at lines 38--38
  [] [] 
  []
 
+<./images/MST_1.png, id=70, 602.25pt x 486.81876pt>
+File: ./images/MST_1.png Graphic file (type png)
+<use ./images/MST_1.png>
+Package pdftex.def Info: ./images/MST_1.png  used on input line 38.
+(pdftex.def)             Requested size: 136.91603pt x 110.67343pt.
 
 
 
@@ -1172,13 +1177,13 @@ Overfull \hbox (26.13011pt too wide) has occurred while \output is active
 
 [2
 
-]
-Overfull \hbox (166.2118pt too wide) in paragraph at lines 39--39
+ <./images/MST_1.png>]
+Overfull \hbox (166.2118pt too wide) in paragraph at lines 46--46
  [][][][]  
  []
 
 
-Overfull \hbox (26.13011pt too wide) in paragraph at lines 39--39
+Overfull \hbox (26.13011pt too wide) in paragraph at lines 46--46
  [] [] 
  []
 
@@ -1225,19 +1230,19 @@ Overfull \hbox (26.13011pt too wide) has occurred while \output is active
 [5
 
 ]
-Overfull \hbox (166.2118pt too wide) in paragraph at lines 50--50
+Overfull \hbox (166.2118pt too wide) in paragraph at lines 57--57
  [][][][]  
  []
 
 
-Overfull \hbox (26.13011pt too wide) in paragraph at lines 50--50
+Overfull \hbox (26.13011pt too wide) in paragraph at lines 57--57
  [] [] 
  []
 
-<example-image.pdf, id=178, 321.2pt x 240.9pt>
+<example-image.pdf, id=179, 321.2pt x 240.9pt>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
-Package pdftex.def Info: example-image.pdf  used on input line 50.
+Package pdftex.def Info: example-image.pdf  used on input line 57.
 (pdftex.def)             Requested size: 188.26346pt x 141.19977pt.
 
 
@@ -1273,27 +1278,25 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: C2D15DD4FAF76EB220959DE0F2647B1C;91.
  ) 
 Here is how much of TeX's memory you used:
- 24011 strings out of 473190
- 464684 string characters out of 5715800
+ 24020 strings out of 473190
+ 464914 string characters out of 5715800
  845077 words of memory out of 5000000
- 46763 multiletter control sequences out of 15000+600000
+ 46772 multiletter control sequences out of 15000+600000
  574748 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,460b,825s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/loc
-al/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local
-/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on presentation.pdf (6 pages, 134780 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on presentation.pdf (6 pages, 148956 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
+ 265 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
  14 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
