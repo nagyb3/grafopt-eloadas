@@ -1,1 +1,0 @@
-\select@language {magyar} \beamer@sectionintoc {1}{Bevezetés}{2}{0}{1}

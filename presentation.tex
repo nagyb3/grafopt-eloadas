@@ -1,15 +1,21 @@
-\documentclass[aspectratio=43]{beamer} % 16:9; drop for 4:3
-\usetheme{Madrid} % try: Berkeley, CambridgeUS, metropolis (if installed)
+\documentclass[aspectratio=43]{beamer}
+\usetheme{Madrid}
+
+\usepackage{amsmath}
+\usepackage{fourier}
+\DeclareRobustCommand{\bigO}{
+  \text{\usefont{OMS}{cmsy}{m}{n}O}
+}
+
 \title{
-  A Simple and Efficient Algorithm for Finding Minimum Spanning Tree Replacement Edges\\[1em]
+  Egy egyszerű és hatékony algoritmus egy minimális feszítőfa helyettesítő éleinek megtalálására\\[1em]
 }
 \subtitle{
   David A. Bader, Paul Burkhardt\\
   {\footnotesize\url{http://jgaa.info/} vol.~26, no.~4, pp.~577-588 (2022)}  
 }
-\author{Bence Nagy}
-\institute{ELTE IK}
-\date{Gráfelméleti és optimalizálási módszerek, 2025}
+\author{Tóth Ábel Tibor, Nagy Bence}
+\date{2025. november 17.}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,32 +27,56 @@
   \titlepage
 \end{frame}
 
-\section{Bevezetés}
-\begin{frame}{Minimum feszítő fa + a feladat}
-   \begin{columns}[c]
+\begin{frame}{Áttekintés: minimális feszítőfa, csereél keresése}
+  \small
+  \begin{columns}[c]
     \column{0.55\textwidth}
-      \begin{itemize}
-        \item Egy irányítatlan, súlyozott gráfon egy olyan fa, amely minden csúcsot összeköt, és a lehető legkevesebb összsúllyal.
-        \item Célunk: a fából, ha kiesek bármelyik él, akkor keressük meg a legjobb csere élet.
-        \item Alkalmazása: hálózati problémák
-      \end{itemize}
-    \column{0.4\textwidth}
+      \begin{definition}
+      Legyen $G = (V, E)$ egy irányítatlan, súlyozott gráf, ahol $n = |V|$ és $m = |E|$, és minden $e \in E$ élhez tartozik egy $w(e)$ súly.
+      Egy minimális feszítőfa $T = MST(G)$ a gráf olyan $n-1$ élből álló részhalmaza, amely összeköti az összes csúcsot, és az élek összsúlya minimális.
+      \end{definition}
+      \begin{definition}
+        A csereél az a legkisebb súlyú él, amely újra összeköti a minimális feszítőfát (egy minimális feszítőfabeli él törlése után).
+      \end{definition}
+      \vspace{6pt}
+    \column{0.40\textwidth}
       \begin{center}
-        \includegraphics[width=\linewidth]{./images/MST_1.png}
+        \includegraphics[width=\linewidth]{./images/MST_1.png}\\[4pt]
+        {\tiny Kép forrás: Wikipédia}
       \end{center}
   \end{columns}
 \end{frame}
 
-\section{}
-\begin{frame}{Előzetes munkák}
+\begin{frame}{Az algoritmus célja és eredménye}
+\small
+\begin{itemize}
+  \item \textbf{Cél}: keressük meg a minimális költségű csereélét minden minimális feszítőfabeli élnek.
+  \item A bemutatott algoritmus képes megtalálni ezeket, ha a nem min feszfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
+  \begin{itemize}
+    \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$}
+  \end{itemize}
+  \item Megjegyzés: a nem min. feszfabeli éleket például a Kruskal-algoritmus használatakor rendezve kapjuk.
+  \item A cikk előtti legjobb eredmény egy $ \bigO (m \alpha (m, n))$ időbonyolultságú algoritmus volt Tarjan-tól 1979-ből. (megj.: $\alpha (m, n)$: Inverse Ackermann's function) 
+\end{itemize}
 \end{frame}
 
-\section{}
 \begin{frame}{Az algoritmus futási ideje}
 \end{frame}
 
-\section{}
-\begin{frame}{Az algoritmus bemutatása}
+
+\begin{frame}{Legfontosabb él (Most Vital Edge)}
+\small
+\begin{itemize}
+  \item \textbf{Definíció:} Az az él, amelynek eltávolítása a legnagyobb növekedést okozza az MST (minimális feszítőfa) súlyában.
+  \item \textbf{Megjegyzés:} Ha $G$-ben van híd, a legfontosabb él nincs értelmezve.
+  \item \textbf{Kulcsállítás:} A legfontosabb él az MST-ben van.
+  \item \textbf{Cikk hozzájárulása:} Ha adott az MST és a nem-fa élek súly szerint rendezve:
+    \begin{enumerate}
+      \item Minden csereél meghatározható $ \bigO (m+n)$ időben.
+      \item A legfontosabb él kiválasztható $ \bigO (n)$ időben
+    \end{enumerate}
+\end{itemize}
 \end{frame}
+
 
 \end{document}
