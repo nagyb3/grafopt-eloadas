@@ -2,7 +2,16 @@
 \usetheme{Madrid}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{fourier}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{listings}
+\lstset{
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  basicstyle=\ttfamily\tiny
+}
 \DeclareRobustCommand{\bigO}{
   \text{\usefont{OMS}{cmsy}{m}{n}O}
 }
@@ -60,7 +69,9 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Az algoritmus futási ideje}
+\input{sections/algorithm-pseudo.tex}
+
+\begin{frame}{}
 \end{frame}
 
 
