@@ -1,0 +1,21 @@
+\begin{frame}[fragile]{Algoritmus: Initialization}
+\tiny
+\begin{lstlisting}[
+  basicstyle=\ttfamily\tiny,
+  breaklines=false,
+  mathescape=true,
+  escapeinside={(*@}{@*)},
+]
+24: Root the MST T at arbitrary vertex v_r and store parents in P .
+25: P [v_r] <- v_r        (*@\hfill{ $\triangleright$ root's parent points to root}@*)
+26: Run DFS on T, setting IN[v] and OUT[v] to the counter value when v is first and last visited, respectively.
+27: for all vertices v in V do
+28:   makeset(v)          (*@\hfill{ $\triangleright$ Initialize the disjoint sets}@*)
+29: for all edges e in E_T do
+30:   R_e = empty         (*@\hfill{ $\triangleright$ Initialize the replacement edges}@*)
+31: for k <- 1 .. m - n + 1 do        (*@\hfill{ $\triangleright$ Scan the m - n + 1 sorted non-MST edges}@*)
+32:   (v_i, v_j) <- e_k
+33:   PathLabel(v_i, v_j, (v_i, v_j))
+34:   PathLabel(v_j, v_i, (v_i, v_j))
+\end{lstlisting}
+\end{frame}
