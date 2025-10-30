@@ -2,16 +2,16 @@
 \usetheme{Madrid}
 
 \usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{fourier}
-\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
-\usepackage{listings}
-\lstset{
-  columns=fullflexible,
-  keepspaces=true,
-  breaklines=true,
-  basicstyle=\ttfamily\tiny
-}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+\newcounter{algLine}
+\newcommand{\setalgline}[1]{\setcounter{algLine}{#1}}
+\newcommand{\nextalgline}{\stepcounter{algLine}\arabic{algLine}:}
+
 \DeclareRobustCommand{\bigO}{
   \text{\usefont{OMS}{cmsy}{m}{n}O}
 }

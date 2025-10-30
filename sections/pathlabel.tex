@@ -1,33 +1,40 @@
-\begin{frame}[fragile]{Algoritmus bemutatása: PathLabel}
-\tiny
-\begin{lstlisting}[
-  basicstyle=\ttfamily\tiny,
-  breaklines=false,
-  mathescape=true,
-  escapeinside={(*@}{@*)},
-]
-procedure PathLabel($s$, $t$, $e$)
-2: if $IN[s] < IN[t] < OUT[s]$ then        (*@\hfill{ $\triangleright$ s is ancestor of t}@*)
-3:   return
-4: if $IN[t] < IN[s] < OUT[t]$ then        (*@\hfill{ $\triangleright$ t is ancestor of s}@*)
-5:   PLAN $\leftarrow$ ANCESTOR; $k_1 \leftarrow IN[t]$; $k_2 \leftarrow IN[s]$
-6: else
-7:   if $IN[s] < IN[t]$ then
-8:     PLAN $\leftarrow$ LEFT; $k_1 \leftarrow OUT[s]$; $k_2 \leftarrow IN[t]$   (*@\hfill{ $\triangleright$ s is left of t}@*)
-9:   else
-10:    PLAN $\leftarrow$ RIGHT; $k_1 \leftarrow OUT[t]$; $k_2 \leftarrow IN[s]$  (*@\hfill{ $\triangleright$ s is right of t}@*)
-11:  $v \leftarrow s$
-12:  while $k_1 < k_2$ do                   (*@\hfill{ $\triangleright$ Detecting when below LCA(s, t)}@*)
-13:    if find($v$) = $v$ then              (*@\hfill{ $\triangleright$ If true, set replacement edge for (v, P[v])}@*)
-14:      $R(v, P[v]) \leftarrow e$          (*@\hfill{ $\triangleright$ Set the replacement edge}@*)
-15:      link($v$)                          (*@\hfill{ $\triangleright$ Union the disjoint sets of v and P[v]}@*)
-16:    $v \leftarrow$ find($v$)
-17:    switch PLAN do
-18:      case ANCESTOR
-19:        $k_2 \leftarrow IN[v]$
-20:      case LEFT
-21:        $k_1 \leftarrow OUT[v]$
-22:      case RIGHT
-23:        $k_2 \leftarrow IN[v]$
-\end{lstlisting}
+\begin{frame}[plain]{Algoritmus bemutatása: PathLabel}
+\scriptsize
+\begin{algorithmic}
+  \State \nextalgline\ \textbf{procedure} \textsc{PathLabel}$(s, t, e)$
+
+  \State \nextalgline\ \textbf{if} $IN[s] < IN[t] < OUT[s]$ \textbf{then}   \Comment{{s is ancestor of t}}
+  \State \nextalgline\ \ \ \textbf{return}
+
+  \State \nextalgline\ \textbf{if} $IN[t] < IN[s] < OUT[t]$ \textbf{then}  \Comment{{t is ancestor of s}}
+  \State \nextalgline\ \ \ PLAN $\gets$ \textsc{ANCESTOR}; $k_1 \gets IN[t]$; $k_2 \gets IN[s]$
+  \State \nextalgline\ \textbf{else}
+  \State \nextalgline\ \ \ \textbf{if} $IN[s] < IN[t]$ \textbf{then}
+  \State \nextalgline\ \ \ \ \ PLAN $\gets$ \textsc{LEFT}; $k_1 \gets OUT[s]$; $k_2 \gets IN[t]$
+    \Comment{{s is left of t}}
+  \State \nextalgline\ \ \ \textbf{else}
+  \State \nextalgline\ \ \ \ \ PLAN $\gets$ \textsc{RIGHT}; $k_1 \gets OUT[t]$; $k_2 \gets IN[s]$
+    \Comment{{s is right of t}}
+  \State \nextalgline\ \textbf{end if}
+  \State \nextalgline\ \textbf{end if}
+
+  \State \nextalgline\ $v \gets s$
+
+  \State \nextalgline\ \textbf{while} $k_1 < k_2$ \textbf{do}     \Comment{{Detecting when below LCA(s, t)}}
+
+  \State \nextalgline\ \ \ \textbf{if} \textsc{find}$(v) = v$ \textbf{then}   \Comment{{If true, set replacement edge for (v, P[v])}}
+  \State \nextalgline\ \ \ \ \ $R(v, P[v]) \gets e$   \Comment{{Set the replacement edge}}
+  \State \nextalgline\ \ \ \ \ \textsc{link}$(v)$   \Comment{{Union the disjoint sets of $v$ and $P[v]$}}
+  \State \nextalgline\ \ \ \textbf{end if}
+
+  \State \nextalgline\ \ \ $v \gets \textsc{find}(v)$
+
+  \State \nextalgline\ \ \ \textbf{switch} PLAN \textbf{do}
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}: $k_2 \gets IN[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}: $k_1 \gets OUT[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}: $k_2 \gets IN[v]$
+
+  \State \nextalgline\ \textbf{end while}
+
+\end{algorithmic}
 \end{frame}
