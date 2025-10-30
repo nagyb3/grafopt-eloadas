@@ -62,9 +62,11 @@
   \item \textbf{Cél}: keressük meg a minimális költségű csereélét minden minimális feszítőfabeli élnek.
   \item A bemutatott algoritmus képes megtalálni ezeket, ha a nem min feszfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
   \begin{itemize}
-    \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$}
+    \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
+    \vspace{0.5em}
+    (n: csúcsok száma, m: élek száma)
   \end{itemize}
-  \item Megjegyzés: a nem min. feszfabeli éleket például a Kruskal-algoritmus használatakor rendezve kapjuk.
+  \item Megjegyzés: a nem min. feszfabeli éleket rendezve kapjuk meg, ha az MST-t a Kruskal algoritmussal keressük meg.
   \item A cikk előtti legjobb eredmény egy $ \bigO (m \alpha (m, n))$ időbonyolultságú algoritmus volt Tarjan-tól 1979-ből. (megj.: $\alpha (m, n)$: Inverse Ackermann's function) 
 \end{itemize}
 \end{frame}
@@ -81,10 +83,9 @@
   \item \textbf{Megjegyzés:} Ha $G$-ben van híd, a legfontosabb él nincs értelmezve.
   \item \textbf{Kulcsállítás:} A legfontosabb él az MST-ben van.
   \item \textbf{Cikk hozzájárulása:} Ha adott az MST és a nem-fa élek súly szerint rendezve:
-    \begin{enumerate}
-      \item Minden csereél meghatározható $ \bigO (m+n)$ időben.
+    \begin{itemize}
       \item A legfontosabb él kiválasztható $ \bigO (n)$ időben
-    \end{enumerate}
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
