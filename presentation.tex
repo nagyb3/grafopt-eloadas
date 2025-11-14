@@ -7,6 +7,33 @@
 \usepackage{algpseudocode}
 \usepackage{xcolor}
 \usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+% reusable node/edge styles for the MST figures
+\tikzset{
+  vertex/.style = {
+    circle,
+    draw=black,
+    fill=white,
+    inner sep=1pt,
+    minimum size=14pt,
+    font=\small
+  },
+  treeedge/.style = {
+    line width=1pt,
+    draw=black
+  },
+  nontree/.style = {
+    line width=0.6pt,
+    draw=gray,
+    densely dashed
+  },
+  highlight/.style = {
+    line width=2pt,
+    draw=red
+  }
+}
+
 
 \newcounter{algLine}
 \newcommand{\setalgline}[1]{\setcounter{algLine}{#1}}
@@ -90,6 +117,8 @@
 \input{sections/pathlabel.tex}
 
 \input{sections/initialization.tex}
+
+\input{sections/algo-step.tex}
 
 
 \begin{frame}{Legfontosabb él (Most Vital Edge)}
