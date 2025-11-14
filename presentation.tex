@@ -104,10 +104,18 @@
 \begin{itemize}
  \item Megjegyzés: a nem min.feszfabeli éleket rendezve kapjuk meg, ha az MST-t a Kruskal algoritmussal keressük meg.
   \begin{itemize}
-    \item Ha nem a Kruskal: a nem MST éleket $\bigO (m)$ időbonyolultsággal rendezhetjük, ha ismerünk egy felső korlátot a lehetséges értékekre. (pl. Radix sort)
+    \item Ha nem a Kruskal: a nem MST éleket $\bigO (m)$ időbonyolultsággal rendezhetjük, ha ismerünk egy felső korlátot a lehetséges értékekre.
   \end{itemize}
-  \item A cikk előtti legjobb eredmény egy $ \bigO (m \alpha (m, n))$ időbonyolultságú algoritmus volt Tarjan-tól 1979-ből. (megj.: $\alpha (m, n)$: Inverse Ackermann's function) 
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Cikket megelőző eredmények}
+  \small
+  \begin{itemize}
+    \item 1975: Spira és Pan: MST egy éléhez csereél $ \bigO (n^2) $ időben.
+    \item 1978: Chin és Houck: MST minden éléhez csereél $ \bigO (n^2) $ időben.
+    \item 1979: Tarjan: $ \bigO (m \alpha (m, n))$ (megj.: $\alpha (m, n)$: Inverse Ackermann's function) 
+  \end{itemize}
 \end{frame}
 
 \input{sections/disjoint-sets.tex}
