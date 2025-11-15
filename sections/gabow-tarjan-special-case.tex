@@ -1,7 +1,7 @@
-\begin{frame}{Gabow-Tarjan algoritmusa a diszjunkt halmazok egy speciális esetére}
+\begin{frame}{Gabow és Tarjan algoritmusa a diszjunkt halmazok egy speciális esetére}
   \begin{itemize}
     \item Gabow és Tarjan létrehoztak egy speciális algoritmus a diszjunkt halmazok egy speciális esetére.
-    \item Speciális eset: a teljes uniófa (Union Tree) ismert az algoritmus indulásakor. % TODO fix this because this is not accurate
+    \item Speciális eset: a teljes uniófa (Union Tree) ismert az algoritmus indulásakor. % TODO make this more understandable and why is this exactly....
     \item Esetünkben az eredeti MST lesz a Union-Tree.
     \item Az algoritmus \textbf{m darab unió és find műveletet} hajt végre, \textbf{n darab elemen}: $ \bigO (m + n)$ futási időben, $ \bigO (n)$ tárhelykomplexitással
     \item Itt: link(v): v halmazát és P[v] halmazát összeuniózza és P[v] képviselője lesz az új halmaz képviselője. (P[v]: v szülője a Union-Tree-ben)

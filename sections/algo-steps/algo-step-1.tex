@@ -9,9 +9,9 @@
 ]
 
 % --- Node coordinates ---
-\node[vtx] (a) at (-4, 1) {a};
-\node[vtx] (b) at (-1.5, 2) {b};
-\node[vtx] (c) at (-2.5, 0.2) {c};
+\node[vtx] (a) at (-4.2, 1) {a};
+\node[vtx] (b) at (-2.2, 2) {b};
+\node[vtx] (c) at (-2.0, 0.2) {c};
 \node[vtx] (d) at (-3, -1.2) {d};
 \node[vtx] (e) at (0, 1) {e};
 \node[vtx] (f) at (-0.5, -1.2) {f};
@@ -21,42 +21,42 @@
 % --- MST edges (thick) ---
 \draw[mstedge] (d) -- (f)
   node[midway, sloped, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
-\draw[mstedge] (f) -- (h)
-  node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
 \draw[mstedge] (g) -- (h)
   node[midway, sloped, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
 \draw[mstedge] (e) -- (f)
   node[midway, sloped, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
 \draw[mstedge] (b) -- (e)
   node[midway, sloped, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
-\draw[mstedge] (e) -- (g)
-  node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
 \draw[mstedge] (c) -- (d)
   node[midway, sloped, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
+\draw[mstedge] (a) -- (d)
+  node[midway, sloped, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
+\draw[mstedge] (e) -- (h)
+  node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
 
 % --- Non-tree edges (thin) ---
 \draw[otheredge] (b) -- (g)
   node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
-\draw[otheredge] (a) -- (d)
-  node[midway, sloped, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
 \draw[otheredge] (a) -- (b)
   node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
 \draw[otheredge] (c) -- (e)
   node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
 \draw[otheredge] (b) -- (c)
   node[midway, sloped, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
-\draw[otheredge] (e) -- (h)
+\draw[otheredge] (f) -- (h)
   node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
+\draw[otheredge] (e) -- (g)
+  node[midway, sloped, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
 
 % --- DFS (IN, OUT) pairs ---
-\node[font=\scriptsize] at ($(a)+(-0.6,0.6)$) {(13, 14)};
-\node[font=\scriptsize] at ($(b)+(0,0.8)$) {(9, 10)};
+\node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
+\node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
 \node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
-\node[font=\scriptsize] at ($(d)+(-0.4,-0.8)$) {(2, 15)};
-\node[font=\scriptsize] at ($(e)+(0,0.8)$) {(4, 11)};
-\node[font=\scriptsize] at ($(f)+(-0.2,-0.8)$) {(3, 12)};
-\node[font=\scriptsize] at ($(g)+(0,0.8)$) {(6, 7)};
-\node[font=\scriptsize] at ($(h)+(0.6,0.0)$) {(5, 8)};
+\node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
+\node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
+\node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
+\node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
+\node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
 
 \end{tikzpicture}
 \end{frame}
