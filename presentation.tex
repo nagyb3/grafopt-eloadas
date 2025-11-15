@@ -95,7 +95,7 @@
     \vspace{0.5em}
     (n: csúcsok száma, m: élek száma)
   \end{itemize}
-  \item A cikk előtt lehetett tudni, hogy ez elméletileg lehetőséges, de ez az első algoritmikus megoldás erre.
+  \item A cikk előtt lehetett tudni, hogy ez elméletileg lehetőséges, de ez az első algoritmikus megoldás erre lineáris időkomplexitással.
 \end{itemize}
 \end{frame}
 
@@ -114,7 +114,12 @@
   \begin{itemize}
     \item 1975: Spira és Pan: MST egy éléhez csereél $ \bigO (n^2) $ időben.
     \item 1978: Chin és Houck: MST minden éléhez csereél $ \bigO (n^2) $ időben.
-    \item 1979: Tarjan: $ \bigO (m \alpha (m, n))$ (megj.: $\alpha (m, n)$: Inverse Ackermann's function) 
+    \item 1979: Tarjan: $ \bigO (m \alpha (m, n))$
+    \begin{itemize}
+      \item $ \alpha $ :  Ackermann függvény inverze: nagyon-nagyon lassan nő a bemenethez képest.
+      \item pl: $ \alpha (7) = 2 $, $ \alpha (61) = 3 $, $ \alpha (2^{2^{2^{2^{2^{2^{2}}}}}} - 3) = 4 $ 
+      \item Majdnem lineáris megoldás, de mégsem az.
+    \end{itemize} 
   \end{itemize}
 \end{frame}
 
@@ -126,7 +131,7 @@
 
 \input{sections/initialization.tex}
 
-\input{sections/algo-step.tex}
+\input{sections/algo-step-full.tex}
 
 
 \begin{frame}{Legfontosabb él (Most Vital Edge)}
