@@ -3,7 +3,7 @@
 \begin{tikzpicture}[
   scale=1,
   vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
-  mstedge/.style={line width=2pt, draw=black},
+  mstedge/.style={line width=2.5pt, draw=black},
   otheredge/.style={line width=0.6pt, draw=black},
   font=\small
 ]
@@ -11,12 +11,14 @@
 % --- Node coordinates ---
 \node[vtx] (a) at (-4.2, 1) {a};
 \node[vtx] (b) at (-2.2, 2) {b};
-\node[vtx] (c) at (-2.0, 0.2) {c};
 \node[vtx] (d) at (-3, -1.2) {d};
 \node[vtx] (e) at (0, 1) {e};
 \node[vtx] (f) at (-0.5, -1.2) {f};
 \node[vtx] (g) at (2, 2) {g};
 \node[vtx] (h) at (2.5, 0) {h};
+
+% -- root node
+\node[rootvertex] (c) at (-2.0, 0.2) {c};
 
 % --- MST edges (thick) ---
 \draw[mstedge] (d) -- (f)
