@@ -1,3 +1,23 @@
-\begin{frame}{Az időkomplexitás bizonyítása}
-  
+\begin{frame}{Időkomplexitás bizonyítása}
+  \small
+  \begin{block}{Tétel:}
+    % Given the Minimum Spanning Tree for an undirected, weighted graph G = (V,E), and non-tree edges sorted by weight, then Algorithm 1 finds all minimum cost replacement edges of the Minimum Spanning Tree of G in O(m+ n) time and O(m+ n) space.
+    Adott egy irányítatlan, súlyozott $G = (V, E)$ gráf minimális feszítőfája, és a nem feszítőfabeli élek súly szerint rendezve, akkor az algoritmus $ \bigO ( m + n )$ időben és $ \bigO ( m + n )$ helyigény mellett megkeresni $G$ minimális feszítőfájának összes minimális költségű csereélét.
+  \end{block}
+  \textbf{Bizonyítás:}\\
+  Legyen T a G gráf minimális feszítőfája.
+  \begin{enumerate}
+    \item A P szülő tömb inicializálása: $ \bigO (n) $
+    % \item Since there are n - 1 edges in T then running DFS on T to initialize the IN and OUT arrays takes $ \bigO (n) $ time.
+    \item Mivel T-ben n - 1 él van, ezért a DFS lefuttatása T-n az IN és OUT értékek inicializálásához: $ \bigO (n) $.
+    % \item Initializing the replacement edges of the MST edges takes $ \bigO (n) $ time.
+    \item Csereélek inicializálása minden MST élhez: $ \bigO (n) $ idő.
+    % \item There are m - n + 1 = O(m) non-MST edges read in ascending order by weight, taking O(m) time.
+    \item $m - n + 1 = \bigO(m) $ nem-MST él olvasás van, növekvő sorban súly szerint: $ \bigO (m) $ időkomplexitás.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Időkomplexitás bizonyítása}
+  \small
+  \textbf{Bizonyítás: (folyt.):}\\
 \end{frame}
