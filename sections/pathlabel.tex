@@ -1,12 +1,12 @@
-\begin{frame}[plain]{Algoritmus bemutatása}
+\begin{frame}[plain]{Az algoritmus pszeudokódja}
 \scriptsize
 \begin{algorithmic}
   \State \nextalgline\ \textbf{procedure} \textsc{PathLabel}$(s, t, e)$
 
-  \State \nextalgline\ \textbf{if} $IN[s] < IN[t] < OUT[s]$ \textbf{then}   \Comment{{s is ancestor of t}}
+  \State \nextalgline\ \ \textbf{if} $IN[s] < IN[t] < OUT[s]$ \textbf{then}   \Comment{{s is ancestor of t}}
   \State \nextalgline\ \ \ \textbf{return}
 
-  \State \nextalgline\ \textbf{if} $IN[t] < IN[s] < OUT[t]$ \textbf{then}  \Comment{{t is ancestor of s}}
+  \State \nextalgline\ \ \textbf{if} $IN[t] < IN[s] < OUT[t]$ \textbf{then}  \Comment{{t is ancestor of s}}
   \State \nextalgline\ \ \ PLAN $\gets$ \textsc{ANCESTOR}; $k_1 \gets IN[t]$; $k_2 \gets IN[s]$
   \State \nextalgline\ \textbf{else}
   \State \nextalgline\ \ \ \textbf{if} $IN[s] < IN[t]$ \textbf{then}
@@ -15,8 +15,6 @@
   \State \nextalgline\ \ \ \textbf{else}
   \State \nextalgline\ \ \ \ \ PLAN $\gets$ \textsc{RIGHT}; $k_1 \gets OUT[t]$; $k_2 \gets IN[s]$
     \Comment{{s is right of t}}
-  \State \nextalgline\ \textbf{end if}
-  \State \nextalgline\ \textbf{end if}
 
   \State \nextalgline\ $v \gets s$
 
@@ -25,7 +23,6 @@
   \State \nextalgline\ \ \ \textbf{if} \textsc{find}$(v) = v$ \textbf{then}   \Comment{{If true, set replacement edge for (v, P[v])}}
   \State \nextalgline\ \ \ \ \ $R(v, P[v]) \gets e$   \Comment{{Set the replacement edge}}
   \State \nextalgline\ \ \ \ \ \textsc{link}$(v)$   \Comment{{Union the disjoint sets of $v$ and $P[v]$}}
-  \State \nextalgline\ \ \ \textbf{end if}
 
   \State \nextalgline\ \ \ $v \gets \textsc{find}(v)$
 
@@ -33,8 +30,6 @@
   \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}: $k_2 \gets IN[v]$
   \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}: $k_1 \gets OUT[v]$
   \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}: $k_2 \gets IN[v]$
-
-  \State \nextalgline\ \textbf{end while}
 
 \end{algorithmic}
 \end{frame}

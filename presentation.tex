@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 \usepackage{fourier}
 \usepackage{algorithm}
-\usepackage{algpseudocode}
+\usepackage[noend]{algpseudocode}
 \usepackage{xcolor}
 \usepackage{amssymb}
 \usepackage{tikz}
@@ -74,7 +74,7 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Áttekintés: minimális feszítőfa, csereél keresése}
+\begin{frame}{Áttekintés: minimális feszítőfa, csereél}
   \small
   \begin{columns}[c]
     \column{0.55\textwidth}
@@ -83,7 +83,7 @@
       Egy minimális feszítőfa $T = MST(G)$ a gráf olyan $n-1$ élből álló részhalmaza, amely összeköti az összes csúcsot, és az élek összsúlya minimális.
       \end{block}
       \begin{block}{Definíció:}
-        A csereél az a legkisebb súlyú él, amely újra összeköti a minimális feszítőfát (egy minimális feszítőfabeli él törlése után).
+        A csereél az a legkisebb súlyú él, amely újra összeköti a minimális feszítőfát egy minimális feszítőfabeli él törlése után.
       \end{block}
       \vspace{6pt}
     \column{0.40\textwidth}
@@ -94,12 +94,24 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Az algoritmus célja és eredménye (1.)}
+\begin{frame}{A feladat felállása}
+  \begin{itemize}
+    \item Adottak:
+    \begin{itemize}
+      \item A gráf minimális feszítőfája
+      \item A nem feszítőfabeli élek RENDEZVE
+    \end{itemize}
+    \item Keressük:
+    \begin{itemize}
+      \item Csereéleket minden minimális feszítőfabeli élhez.
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Az algoritmus időkomplexitása}
 \small
 \begin{itemize}
-  \begin{block}{Cél:}
-    Keressük meg a minimális költségű csereélét minden minimális feszítőfabeli élhez.
-  \end{block}
   \item Az algoritmus képes megtalálni ezeket, ha a nem min feszfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
   \begin{itemize}
     \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
@@ -110,17 +122,17 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Az algoritmus célja és eredménye (2.)}
-\small
-\begin{itemize}
- \item Megjegyzés: a nem min.feszfabeli éleket rendezve kapjuk meg, ha az MST-t a Kruskal algoritmussal keressük meg.
-  \begin{itemize}
-    \item Ha nem a Kruskal: a nem MST éleket $\bigO (m)$ időbonyolultsággal rendezhetjük, ha ismerünk egy felső korlátot a lehetséges értékekre.
-  \end{itemize}
-\end{itemize}
-\end{frame}
+% \begin{frame}{Az algoritmus célja és eredménye (2.)}
+% \small
+% \begin{itemize}
+%  \item Megjegyzés: a nem min.feszfabeli éleket rendezve kapjuk meg, ha az MST-t a Kruskal algoritmussal keressük meg.
+%   \begin{itemize}
+%     \item Ha nem a Kruskal: a nem MST éleket $\bigO (m)$ időbonyolultsággal rendezhetjük, ha ismerünk egy felső korlátot a lehetséges értékekre.
+%   \end{itemize}
+% \end{itemize}
+% \end{frame}
 
-\begin{frame}{Cikket megelőző eredmények}
+\begin{frame}{Cikket előtti eredmények}
   \small
   \begin{itemize}
     \item 1975: Spira és Pan: MST egy éléhez csereél $ \bigO (n^2) $ időben.
@@ -137,6 +149,8 @@
 \input{sections/disjoint-sets.tex}
 
 \input{sections/gabow-tarjan-special-case.tex}
+
+\input{sections/alap-otlet.tex}
 
 \input{sections/pathlabel.tex}
 
@@ -156,6 +170,5 @@
     \end{itemize}
 \end{itemize}
 \end{frame}
-
 
 \end{document}
