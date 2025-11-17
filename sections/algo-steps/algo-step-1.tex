@@ -1,10 +1,10 @@
-\begin{frame}{Példa lefutás}
+\begin{frame}{Példa lefutás - 1. él}
 \centering
 \begin{tikzpicture}[
   scale=1,
   vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
   mstedge/.style={line width=2.5pt, draw=black},
-  otheredge/.style={line width=0.6pt, draw=black},
+  otheredge/.style={line width=0.8pt, draw=black},
   font=\small
 ]
 
@@ -47,7 +47,7 @@
   node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
 \draw[otheredge] (f) -- (h)
   node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
-\draw[otheredge] (e) -- (g)
+\draw[otheredge, draw=red] (e) -- (g)
   node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
 
 % --- DFS (IN, OUT) pairs ---
@@ -61,4 +61,155 @@
 \node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
 
 \end{tikzpicture}
+\\[0.5em]
+\small
+\begin{enumerate}
+  \item Vertex e is the ancestor of g, then we get the ancestor (ANCESTOR) plan with k1 = IN[e], k2 = IN[g] and thus k1 < k2.
+  \item The disjoint sets are linked so g's disjoint set gets h's label. This compresses the subpath (g,h)
+\end{enumerate}
 \end{frame}
+
+\begin{frame}{Példa lefutás - 1. él (folytatás)}
+\centering
+\begin{tikzpicture}[
+  scale=1,
+  vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
+  mstedge/.style={line width=2.5pt, draw=black},
+  otheredge/.style={line width=0.8pt, draw=black},
+  font=\small
+]
+
+% --- Node coordinates ---
+\node[vtx] (a) at (-4.2, 1) {a};
+\node[vtx] (b) at (-2.2, 2) {b};
+\node[vtx] (d) at (-3, -1.2) {d};
+\node[vtx] (e) at (0, 1) {e};
+\node[vtx] (f) at (-0.5, -1.2) {f};
+\node[vtx] (g) at (2, 2) {g};
+\node[vtx] (h) at (2.5, 0) {h};
+
+% -- root node
+\node[rootvertex] (c) at (-2.0, 0.2) {c};
+
+% --- MST edges (thick) ---
+\draw[mstedge] (d) -- (f)
+  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
+\draw[mstedge] (g) -- (h)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
+\draw[mstedge] (e) -- (f)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
+\draw[mstedge] (b) -- (e)
+  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
+\draw[mstedge] (c) -- (d)
+  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
+\draw[mstedge] (a) -- (d)
+  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
+\draw[mstedge] (e) -- (h)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
+
+% --- Non-tree edges (thin) ---
+\draw[otheredge] (b) -- (g)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
+\draw[otheredge] (a) -- (b)
+  node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
+\draw[otheredge] (c) -- (e)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
+\draw[otheredge] (b) -- (c)
+  node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
+\draw[otheredge] (f) -- (h)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
+\draw[otheredge, draw=red] (e) -- (g)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
+
+% --- DFS (IN, OUT) pairs ---
+\node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
+\node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
+\node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
+\node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
+\node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
+\node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
+\node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
+\node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
+
+\end{tikzpicture}
+\\[0.5em]
+\small
+\begin{enumerate}
+  \item The next vertex is h since it is the parent of g and then k2 is updated to IN[h].
+  \item Continuing the traversal with h (line 12), again line 14 assigns (g,e) to (h,e) where e is the parent of h.
+  \item The disjoint sets are linked (line 15) so h's disjoint set gets e’s label. This compresses the subpath (g,h,e).
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Példa lefutás - 1. él (folytatás)}
+\centering
+\begin{tikzpicture}[
+  scale=1,
+  vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
+  mstedge/.style={line width=2.5pt, draw=black},
+  otheredge/.style={line width=0.8pt, draw=black},
+  font=\small
+]
+
+% --- Node coordinates ---
+\node[vtx] (a) at (-4.2, 1) {a};
+\node[vtx] (b) at (-2.2, 2) {b};
+\node[vtx] (d) at (-3, -1.2) {d};
+\node[vtx] (e) at (0, 1) {e};
+\node[vtx] (f) at (-0.5, -1.2) {f};
+\node[vtx] (g) at (2, 2) {g};
+\node[vtx] (h) at (2.5, 0) {h};
+
+% -- root node
+\node[rootvertex] (c) at (-2.0, 0.2) {c};
+
+% --- MST edges (thick) ---
+\draw[mstedge] (d) -- (f)
+  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
+\draw[mstedge] (g) -- (h)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
+\draw[mstedge] (e) -- (f)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
+\draw[mstedge] (b) -- (e)
+  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
+\draw[mstedge] (c) -- (d)
+  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
+\draw[mstedge] (a) -- (d)
+  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
+\draw[mstedge] (e) -- (h)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
+
+% --- Non-tree edges (thin) ---
+\draw[otheredge] (b) -- (g)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
+\draw[otheredge] (a) -- (b)
+  node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
+\draw[otheredge] (c) -- (e)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
+\draw[otheredge] (b) -- (c)
+  node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
+\draw[otheredge] (f) -- (h)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
+\draw[otheredge, draw=red] (e) -- (g)
+  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
+
+% --- DFS (IN, OUT) pairs ---
+\node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
+\node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
+\node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
+\node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
+\node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
+\node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
+\node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
+\node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
+
+\end{tikzpicture}
+\\[0.5em]
+\small
+\begin{enumerate}
+  \item Now the next vertex is e so k2 gets IN[e] making it equal to k1, thus ending the while loop.
+  \item The oppositely-oriented edge (e,g) input at line 34 is not processed because eis the ancestor of g and we have already followed the path from descendent to ancestor
+\end{enumerate}
+\end{frame}
+
