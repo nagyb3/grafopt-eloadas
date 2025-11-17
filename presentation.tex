@@ -112,7 +112,7 @@
 \begin{frame}{Az algoritmus időkomplexitása}
 \small
 \begin{itemize}
-  \item Az algoritmus képes megtalálni ezeket, ha a nem min feszfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
+  \item Az algoritmus képes megtalálni minden csereélet, ha a nem min feszfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
   \begin{itemize}
     \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
     \vspace{0.5em}
@@ -142,22 +142,27 @@
       \item $ \alpha $ :  Ackermann függvény inverze: nagyon-nagyon lassan nő a bemenethez képest.
       \item pl: $ \alpha (7) = 2 $, $ \alpha (61) = 3 $, $ \alpha (2^{2^{2^{2^{2^{2^{2}}}}}} - 3) = 4 $ 
       \item Majdnem lineáris megoldás, de mégsem az.
-    \end{itemize} 
+    \end{itemize}
+    \vspace{1.5em}
+    \item 2022: Bader és Burkhardt: $ \bigO (m + n) $
   \end{itemize}
 \end{frame}
+
+\input{sections/alap-otlet.tex}
+
+% \input{sections/vazlat.tex}
 
 \input{sections/disjoint-sets.tex}
 
 \input{sections/gabow-tarjan-special-case.tex}
 
-\input{sections/alap-otlet.tex}
+\input{sections/initialization.tex}
 
 \input{sections/pathlabel.tex}
 
-\input{sections/initialization.tex}
-
 \input{sections/algo-step-full.tex}
 
+\input{sections/time-proof.tex}
 
 \begin{frame}{Legfontosabb él (Most Vital Edge)}
 \small
@@ -170,5 +175,11 @@
     \end{itemize}
 \end{itemize}
 \end{frame}
+
+\input{sections/osszegzes.tex}
+
+\input{sections/bibliography.tex}
+
+\input{sections/the-end.tex}
 
 \end{document}
