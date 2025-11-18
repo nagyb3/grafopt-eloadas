@@ -85,6 +85,7 @@
       \begin{block}{Definíció:}
         A csereél az a legkisebb súlyú él, amely újra összeköti a minimális feszítőfát egy minimális feszítőfabeli él törlése után.
       \end{block}
+      Probléma alkalmazása: utakon balesetek, kommunikációs hálózatokban kábel szakadás
       \vspace{6pt}
     \column{0.40\textwidth}
       \begin{center}
@@ -171,14 +172,14 @@
   \item \textbf{Az algoritmus hozzájárulása:}
     \begin{itemize}
       \item A csereélek meghatározása után a legfontosabb él kiválasztható $ \bigO (n)$ időben. Csak meg kell keresni, hogy melyik MST-beli él súlyának a különbsége legnagyobb a csereélének súlyával.
-      \item Így: a legfontosabb él kiszámítható $ \bigO (m + n)$ időben, ha adott az eredeti MST és a nem MST élek rendezve.
+      \item Így: a legfontosabb él kiszámítható $ \bigO (m + n)$ időben, ha adott az eredeti MST és a nem MST élek rendezve vannak.
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \input{sections/osszegzes.tex}
 
-\input{sections/bibliography.tex}
+% \input{sections/bibliography.tex}
 
 \input{sections/the-end.tex}
 

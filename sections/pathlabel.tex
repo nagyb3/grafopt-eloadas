@@ -1,4 +1,4 @@
-\begin{frame}[plain]{Az algoritmus pszeudokódja}
+\begin{frame}[plain]{Az algoritmus pszeudokódja (PathLabel metódus)}
 \scriptsize
 \begin{algorithmic}
   \State \nextalgline\ \textbf{procedure} \textsc{PathLabel}$(s, t, e)$
@@ -27,9 +27,23 @@
   \State \nextalgline\ \ \ $v \gets \textsc{find}(v)$
 
   \State \nextalgline\ \ \ \textbf{switch} PLAN \textbf{do}
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}: $k_2 \gets IN[v]$
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}: $k_1 \gets OUT[v]$
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}: $k_2 \gets IN[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}:
+  \State \nextalgline\ \ \ \ \ \ $k_2 \gets IN[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}:
+  \State \nextalgline\ \ \ \ \ \ $k_1 \gets OUT[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}:
+  \State \nextalgline\ \ \ \ \ \ $k_2 \gets IN[v]$
 
 \end{algorithmic}
+\end{frame}
+
+\begin{frame}{PathLabel funkciója}
+  \begin{itemize}
+    \item Meghatározza s és t élek pozícióját egymáshoz képest az MST-n. (LEFT, RIGHT, ANCESTOR)
+    \item s éllel kezdve végig megyünk az s $\rightarrow$ t úton, és:
+    \begin{itemize}
+      \item Ha az adott él még nem volt path compression-elve (v = find(v)), akkor annak az élnek az inputként megadott élet menti el csereélének. Majd path compression-t hajt végre (link(v)).
+      \item $k_1$ és $k_2$ counter-eket léptetgeti, ameddig végig nem érünk az s $\rightarrow$ t úton.
+    \end{itemize}
+  \end{itemize}
 \end{frame}

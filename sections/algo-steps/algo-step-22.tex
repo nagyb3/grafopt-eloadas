@@ -1,0 +1,83 @@
+\begin{frame}{Példa lefutás - második nem-fa él $(b-g)$}
+\begin{columns}[T]
+  \begin{column}{0.46\textwidth}
+    \small
+    \textbf{Második nem-fa él $(b-g)$:} (folyt.)
+    \begin{itemize}
+      % \item The next vertex is e (the parent of b) and thus k2 is updated to IN[e] (lines 22-23) making k2 <k1 and thus ending the while loop.
+      \item A következő él a bejárásban e (mivel ő b-nek a szülője), így k2 = IN[e]. Ekkor $k_2$ < $k_1$ teljesül, így leáll a while loop.
+      % \item The oppositely-oriented edge (g,b) is input at line 34.
+      \item Meghívjuk PathLabel-t (g-b) éllel: PathLabel(g, b, (g, b)).
+      % \item We get the LEFT branch plan (line 8) with k1 = OUT[g], k2 = IN[b] so k1 < k2 and start the traversal with g.
+      \item Megkapjuk LEFT ágtervet, $k_1$ = OUT[g] és $k_2$ = IN[b]-vel, szóval $k_1$ < $k_2$ és megkezdjük a bejárást g-vel kezdve.
+      % \item Now observe that the disjoint sets had previously compressed the subpath (g,h,e). Thus find(g) ̸= g. This jumps the walk to the LCA, which is vertex e, and updates k1 to OUT[e] to end the while loop.
+      \item Ekkor figyeljük meg, hogy a diszjunkt halmazok tömörítették már a (g, h, e) részútat, ezért find(g) != g. ... 
+    \end{itemize}
+  \end{column}
+  \begin{column}{0.54\textwidth}
+    \centering
+    \begin{tikzpicture}[
+      scale=1,
+      vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
+      mstedge/.style={line width=2.5pt, draw=black},
+      otheredge/.style={line width=0.8pt, draw=black},
+      font=\small
+    ]
+
+    % --- Node coordinates ---
+    \node[vtx] (a) at (-4.2, 1) {a};
+    \node[vtx] (b) at (-2.2, 2) {b};
+    \node[vtx] (d) at (-3, -1.2) {d};
+    \node[vtx] (e) at (0, 1) {e};
+    \node[vtx] (f) at (-0.5, -1.2) {f};
+    \node[vtx] (g) at (2, 2) {g};
+    \node[vtx] (h) at (2.5, 0) {h};
+
+    % -- root node
+    \node[rootvertex] (c) at (-2.0, 0.2) {c};
+
+    % --- MST edges (thick) ---
+    \draw[mstedge] (d) -- (f)
+      node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
+    \draw[mstedge] (g) -- (h)
+      node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
+    \draw[mstedge] (e) -- (f)
+      node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
+    \draw[mstedge] (b) -- (e)
+      node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
+    \draw[mstedge] (c) -- (d)
+      node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
+    \draw[mstedge] (a) -- (d)
+      node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
+    \draw[mstedge] (e) -- (h)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
+
+    % --- Non-tree edges (thin) ---
+    \draw[otheredge, draw=red] (b) -- (g)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
+    \draw[otheredge] (a) -- (b)
+      node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
+    \draw[otheredge] (c) -- (e)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
+    \draw[otheredge] (b) -- (c)
+      node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
+    \draw[otheredge] (f) -- (h)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
+    % aktuálisan vizsgált nem-fa él
+    \draw[otheredge, line width=1.2pt] (e) -- (g)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
+
+    % --- DFS (IN, OUT) pairs ---
+    \node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
+    \node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
+    \node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
+    \node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
+    \node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
+    \node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
+    \node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
+    \node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
+
+    \end{tikzpicture}
+  \end{column}
+\end{columns}
+\end{frame}

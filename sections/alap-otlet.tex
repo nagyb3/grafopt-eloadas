@@ -6,7 +6,7 @@
 %    \item Observe that each of the m - n + 1 edges in E\\ET induces a fundamental cycle with the edges in T.
     \item Figyeljük meg, hogy mindegyik m - n + 1 darab él $E \setminus E_T$-ben egy fundamentális kört indukál T éleivel.
 %    \item Then for any MST edge there is a subset of cycles containing that edge, and the cycle induced by the lightest non-MST edge is the replacement for it
-    \item Then for any MST edge there is a subset of cycles containing that edge, and the cycle induced by the lightest non-MST edge is the replacement for it
+    \item Ekkor bármely MST élt tartalmazóan létezik a ciklusok egy részhalmaza, és a legkönnyebb nem-MST él által indukált ciklus helyettesíti azt. 
   \end{itemize}
   \centering
   \begin{tikzpicture}[
@@ -68,73 +68,13 @@
 \begin{frame}{Az algoritmus alapötlete 2.}
   \small
   \begin{enumerate}
-    \item Assign the parent and the first and last visited numbers to each vertex according to depth-first search over T
-    \item Traverse the fundamental cycle induced by each non-tree edge in order of ascending weight
-    \item Compress paths to skip edges already assigned replacements
+    \item Kijelölünk egy tétszőleges csúcsot a fa gyökerének.
+    % \item Assign the parent and the first and last visited numbers to each vertex according to depth-first search over T
+    \item A mélységi bejárás alapján minden csúcsnak rendeljük hozzá a szülőjét, valamint a belépési (IN[v]) és kilépési (OUT[v]) sorszámát.
+    % \item Traverse the fundamental cycle induced by each non-tree edge in order of ascending weight
+    \item Járjuk be a fundamentális kört, amelyet egy nem-fa él indukált.
+    % \item Compress paths to skip edges already assigned replacements
+    \item Hajtsunk végre úttömörítés (path compression), hogy kihagyjuk azon élek bejárását, amelyenek már találtunk csereélet.
   \end{enumerate}
-  We use the disjoint sets for fast path compression based on the Gabow-Tarjan static union tree method.
-
-
-\centering
-\begin{tikzpicture}[
-  scale=1,
-  vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
-  mstedge/.style={line width=2.5pt, draw=black},
-  otheredge/.style={line width=0.6pt, draw=black},
-  font=\small
-]
-
-% --- Node coordinates ---
-\node[vtx] (a) at (-4.2, 1) {a};
-\node[vtx] (b) at (-2.2, 2) {b};
-\node[vtx] (d) at (-3, -1.2) {d};
-\node[vtx] (e) at (0, 1) {e};
-\node[vtx] (f) at (-0.5, -1.2) {f};
-\node[vtx] (g) at (2, 2) {g};
-\node[vtx] (h) at (2.5, 0) {h};
-
-% -- root node
-\node[rootvertex] (c) at (-2.0, 0.2) {c};
-
-% --- MST edges (thick) ---
-\draw[mstedge] (d) -- (f)
-  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
-\draw[mstedge] (g) -- (h)
-  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
-\draw[mstedge] (e) -- (f)
-  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
-\draw[mstedge] (b) -- (e)
-  node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
-\draw[mstedge] (c) -- (d)
-  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
-\draw[mstedge] (a) -- (d)
-  node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
-\draw[mstedge] (e) -- (h)
-  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
-
-% --- Non-tree edges (thin) ---
-\draw[otheredge] (b) -- (g)
-  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
-\draw[otheredge] (a) -- (b)
-  node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
-\draw[otheredge] (c) -- (e)
-  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
-\draw[otheredge] (b) -- (c)
-  node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
-\draw[otheredge] (f) -- (h)
-  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
-\draw[otheredge] (e) -- (g)
-  node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
-
-% --- DFS (IN, OUT) pairs ---
-\node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
-\node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
-\node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
-\node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
-\node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
-\node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
-\node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
-\node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
-
-\end{tikzpicture}
+  A diszjunkt halmaz adatszerkezetet használjuk gyors úttömörítésre a Gabow-Tarjan-féle statikus uniófa módszer alapján.
 \end{frame}

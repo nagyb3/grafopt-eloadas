@@ -1,0 +1,94 @@
+% \input{sections/algo-steps/algo-step-1.tex}
+
+% ====================================================================
+% Példa lefutás – (e,g) él, 1. dia: MST + DFS + nem-fa él
+% ====================================================================
+\begin{frame}{Példa lefutás - első nem-fa él $(e,g)$}
+\begin{columns}[T]
+  \begin{column}{0.46\textwidth}
+    \small
+    \textbf{Első nem-fa él: $(e, g)$}
+    \begin{itemize}
+      % \item Adott az MST (vastag élek) és a DFS alapján kiosztott $\text{IN}, \text{OUT}$ számok.
+      % \item Vizsgáljuk a legkisebb súlyú nem-fa élet: \alert{$(e,g)$}, súlya $6$.
+      % \item Megnézzük, hogy egyik végpont őse-e a másiknak:
+      % \[
+      %   \text{IN}[e]=4 < \text{IN}[g]=6 < \text{OUT}[g]=7 < \text{OUT}[e]=11
+      % \]
+      % \item Következtetés: \textbf{$e$ őse $g$-nek}, ezért \texttt{PLAN = ANCESTOR}, és
+      %       a \texttt{PathLabel} hívásban az útvonal \alert{$g \rightarrow h \rightarrow e$}.
+      \item Az e él g élnek a felmenője a fában, így megkapjuk $plan = ANCESTOR$-t. Továbbá $k_1$ = IN[e] = 4 és $k_2$ = IN[g] = 6, és mivel $k_1$ < $k_2$ ezért elkezdjük a bejárást.
+      
+      % \item The cycle traversal begins with g (line 11). Since g has not yet been visited then line 14 assigns the current non-MST edge (g,e) to (g,h), where h is the parent of g.
+      \item A kör bejárás g-nél kezdjük. Mivel g-t még nem jártuk be (link(g) = g), ezért a (g, e) nem-MST élet (g, h) csereéleként mentjük el ($R(g, h) = (e, g)$).
+      % \item The disjoint sets are linked (line 15) so g’s disjoint set gets h’s label. This compresses the subpath (g,h).
+      \item g és h diszjunkt halmazait link-eljük úgy, hogy g diszjunkt halmaza kapja meg h képviselőjét. Ez a lépés tömöríti a (g, h) részutat.
+    \end{itemize}
+  \end{column}
+  \begin{column}{0.54\textwidth}
+    \centering
+    \begin{tikzpicture}[
+      scale=1,
+      vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
+      mstedge/.style={line width=2.5pt, draw=black},
+      otheredge/.style={line width=0.8pt, draw=black},
+      font=\small
+    ]
+
+    % --- Node coordinates ---
+    \node[vtx] (a) at (-4.2, 1) {a};
+    \node[vtx] (b) at (-2.2, 2) {b};
+    \node[vtx] (d) at (-3, -1.2) {d};
+    \node[vtx] (e) at (0, 1) {e};
+    \node[vtx] (f) at (-0.5, -1.2) {f};
+    \node[vtx] (g) at (2, 2) {g};
+    \node[vtx] (h) at (2.5, 0) {h};
+
+    % -- root node
+    \node[rootvertex] (c) at (-2.0, 0.2) {c};
+
+    % --- MST edges (thick) ---
+    \draw[mstedge] (d) -- (f)
+      node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
+    \draw[mstedge] (g) -- (h)
+      node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
+    \draw[mstedge] (e) -- (f)
+      node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
+    \draw[mstedge] (b) -- (e)
+      node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{5};
+    \draw[mstedge] (c) -- (d)
+      node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
+    \draw[mstedge] (a) -- (d)
+      node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
+    \draw[mstedge] (e) -- (h)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
+
+    % --- Non-tree edges (thin) ---
+    \draw[otheredge] (b) -- (g)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
+    \draw[otheredge] (a) -- (b)
+      node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
+    \draw[otheredge] (c) -- (e)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{11};
+    \draw[otheredge] (b) -- (c)
+      node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
+    \draw[otheredge] (f) -- (h)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
+    % aktuálisan vizsgált nem-fa él
+    \draw[otheredge, draw=red, line width=1.2pt] (e) -- (g)
+      node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
+
+    % --- DFS (IN, OUT) pairs ---
+    \node[font=\scriptsize] at ($(a)+(-0.2,0.5)$) {(13, 14)};
+    \node[font=\scriptsize] at ($(b)+(0,0.6)$) {(9, 10)};
+    \node[font=\scriptsize] at ($(c)+(-0.6,0.4)$) {(1, 16)};
+    \node[font=\scriptsize] at ($(d)+(-0.1,-0.6)$) {(2, 15)};
+    \node[font=\scriptsize] at ($(e)+(0,0.5)$) {(4, 11)};
+    \node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
+    \node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
+    \node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
+
+    \end{tikzpicture}
+  \end{column}
+\end{columns}
+\end{frame}
