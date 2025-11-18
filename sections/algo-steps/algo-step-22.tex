@@ -5,11 +5,11 @@
     \textbf{Második nem-fa él $(b-g)$:} (folyt.)
     \begin{itemize}
       % \item The next vertex is e (the parent of b) and thus k2 is updated to IN[e] (lines 22-23) making k2 <k1 and thus ending the while loop.
-      \item A következő él a bejárásban e (mivel ő b-nek a szülője), így k2 = IN[e]. Ekkor k2 < k1 teljesül, így leáll a while loop.
+      \item A következő él a bejárásban e (mivel ő b-nek a szülője), így k2 = IN[e]. Ekkor $k_2$ < $k_1$ teljesül, így leáll a while loop.
       % \item The oppositely-oriented edge (g,b) is input at line 34.
       \item Meghívjuk PathLabel-t (g-b) éllel: PathLabel(g, b, (g, b)).
       % \item We get the LEFT branch plan (line 8) with k1 = OUT[g], k2 = IN[b] so k1 < k2 and start the traversal with g.
-      \item Megkapjuk LEFT ágtervet, k1 = OUT[g] és k2 = IN[b]-vel, szóval k1 < k2 és megkezdjük a bejárást g-vel kezdve.
+      \item Megkapjuk LEFT ágtervet, $k_1$ = OUT[g] és $k_2$ = IN[b]-vel, szóval $k_1$ < $k_2$ és megkezdjük a bejárást g-vel kezdve.
       % \item Now observe that the disjoint sets had previously compressed the subpath (g,h,e). Thus find(g) ̸= g. This jumps the walk to the LCA, which is vertex e, and updates k1 to OUT[e] to end the while loop.
       \item Ekkor figyeljük meg, hogy a diszjunkt halmazok már tömörítették a (g, h, e) részútat, ezért find(g) != g. ... 
     \end{itemize}

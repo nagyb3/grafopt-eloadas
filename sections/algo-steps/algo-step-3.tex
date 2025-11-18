@@ -1,8 +1,3 @@
-
-
-% ====================================================================
-% 2. dia
-% ====================================================================
 \begin{frame}{Példa lefutás - $(e,g)$ fundamentális köre}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
@@ -25,8 +20,7 @@
     \begin{tikzpicture}[
       scale=1,
       vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
-      mstedge/.style={line width=1.5pt, draw=black},
-      cycleedge/.style={line width=2.5pt, draw=blue},
+      mstedge/.style={line width=2.5pt, draw=black},
       otheredge/.style={line width=0.8pt, draw=black},
       font=\small
     ]
@@ -43,11 +37,10 @@
     % -- root node
     \node[rootvertex] (c) at (-2.0, 0.2) {c};
 
-    % --- MST edges (base) ---
+    % --- MST edges (thick) ---
     \draw[mstedge] (d) -- (f)
       node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
-    % kör része kiemelve
-    \draw[cycleedge] (g) -- (h)
+    \draw[mstedge] (g) -- (h)
       node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
     \draw[mstedge] (e) -- (f)
       node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
@@ -57,7 +50,7 @@
       node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
     \draw[mstedge] (a) -- (d)
       node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
-    \draw[cycleedge] (e) -- (h)
+    \draw[mstedge] (e) -- (h)
       node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
 
     % --- Non-tree edges (thin) ---
@@ -83,8 +76,6 @@
     \node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
     \node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
     \node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
-
-    \node[font=\scriptsize, above right=0.1cm of g] {$R(g,h) = (e,g)$};
 
     \end{tikzpicture}
   \end{column}

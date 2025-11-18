@@ -27,9 +27,12 @@
   \State \nextalgline\ \ \ $v \gets \textsc{find}(v)$
 
   \State \nextalgline\ \ \ \textbf{switch} PLAN \textbf{do}
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}: $k_2 \gets IN[v]$
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}: $k_1 \gets OUT[v]$
-  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}: $k_2 \gets IN[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{ANCESTOR}:
+  \State \nextalgline\ \ \ \ \ \ $k_2 \gets IN[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{LEFT}:
+  \State \nextalgline\ \ \ \ \ \ $k_1 \gets OUT[v]$
+  \State \nextalgline\ \ \ \ \ \textbf{case} \textsc{RIGHT}:
+  \State \nextalgline\ \ \ \ \ \ $k_2 \gets IN[v]$
 
 \end{algorithmic}
 \end{frame}
