@@ -37,10 +37,10 @@
 \begin{frame}{PathLabel funkciója}
   \begin{itemize}
     \item Meghatározza s és t élek pozícióját egymáshoz képest az MST-n. (LEFT, RIGHT, ANCESTOR)
-    \item s éllel kezdve végig lépked a fán és:
+    \item s éllel kezdve végig megyünk az s $\rightarrow$ t úton, és:
     \begin{itemize}
       \item Ha az adott él még nem volt path compression-elve (v = find(v)), akkor annak az élnek az inputként megadott élet menti el csereélének. Majd path compression-t hajt végre (link(v)).
-      \item $k_1$ és $k_2$ counter-eket léptetgeti, ameddig végig nem érünk az s -> t úton.
+      \item $k_1$ és $k_2$ counter-eket léptetgeti, ameddig végig nem érünk az s $\rightarrow$ t úton.
     \end{itemize}
   \end{itemize}
 \end{frame}

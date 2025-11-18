@@ -3,6 +3,6 @@
 %     \item Bemenet: súlyozott gráf $G=(V,E)$, MST $T$, súly szerint rendezett nem-MST élek.
 %     \item Gyökerezzük $T$-t, DFS-sel meghatározzuk $P[v]$, $IN[v]$, $OUT[v]$ minden $v$-re.
 %     \item Súly szerinti sorrendben bejárjuk a nem-MST éleket $(s,t)$, mindegyik fundamentális körét a \texttt{PathLabel} eljárással járjuk be leszármazott $\to$ ős irányban.
-%     \item Amely MST-élhez először érünk, ahhoz beállítjuk a csereélt, és \texttt{link}-kel kompresszáljuk az útvonalat.
+%     \item Amely MST-élhez először érünk, ahhoz beállítjuk a csereélt, és \texttt{link}-kel tömörítjük az útvonalat.
 %   \end{itemize}
 % \end{frame}

@@ -1,24 +1,17 @@
-% ====================================================================
-% 3. dia
-% ====================================================================
-\begin{frame}{Példa lefutás - $(e,g)$ és úttömörítés}
+\begin{frame}{Példa lefutás - második nem-fa él $(b-g)$}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Második iteráció:}
+    \textbf{Második nem-fa él $(b-g)$:} (folyt.)
     \begin{itemize}
-      \item \texttt{link(g)} után \texttt{find(g)} már $h$-t adja vissza:
-            a $(g,h)$ szakasz tömörült.
-      \item Következő csúcs: $v \leftarrow h$, itt $\texttt{find(h)} = h$,
-            ezért $R(h,e) = (e,g)$, majd \texttt{link(h)}.
-      \item A teljes $(g,h,e)$ út egyetlen képviselő alá kerül.
-    \end{itemize}
-    \vspace{0.5em}
-    \textbf{Következmény:}
-    \begin{itemize}
-      \item Későbbi nem-fa élek futásánál a \texttt{find} hívások
-            \alert{átugorják} ezt az utat.
-      \item Minden MST él legfeljebb egyszer kerül bejárásra.
+      % \item The next vertex is e (the parent of b) and thus k2 is updated to IN[e] (lines 22-23) making k2 <k1 and thus ending the while loop.
+      \item A következő él a bejárásban e (mivel ő b-nek a szülője), így k2 = IN[e]. Ekkor k2 < k1 teljesül, így leáll a while loop.
+      % \item The oppositely-oriented edge (g,b) is input at line 34.
+      \item Meghívjuk PathLabel-t (g-b) éllel: PathLabel(g, b, (g, b)).
+      % \item We get the LEFT branch plan (line 8) with k1 = OUT[g], k2 = IN[b] so k1 < k2 and start the traversal with g.
+      \item Megkapjuk LEFT ágtervet, k1 = OUT[g] és k2 = IN[b]-vel, szóval k1 < k2 és megkezdjük a bejárást g-vel kezdve.
+      % \item Now observe that the disjoint sets had previously compressed the subpath (g,h,e). Thus find(g) ̸= g. This jumps the walk to the LCA, which is vertex e, and updates k1 to OUT[e] to end the while loop.
+      \item Ekkor figyeljük meg, hogy a diszjunkt halmazok már tömörítették a (g, h, e) részútat, ezért find(g) != g. ... 
     \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}
@@ -26,8 +19,7 @@
     \begin{tikzpicture}[
       scale=1,
       vtx/.style={circle, draw=black, fill=white, inner sep=1pt, minimum size=16pt},
-      mstedge/.style={line width=1.5pt, draw=black},
-      compressed/.style={line width=2.5pt, draw=green!60!black},
+      mstedge/.style={line width=2.5pt, draw=black},
       otheredge/.style={line width=0.8pt, draw=black},
       font=\small
     ]
@@ -44,11 +36,10 @@
     % -- root node
     \node[rootvertex] (c) at (-2.0, 0.2) {c};
 
-    % --- MST edges (base) ---
+    % --- MST edges (thick) ---
     \draw[mstedge] (d) -- (f)
       node[midway, below=2pt, fill=white, inner sep=1pt, font=\scriptsize]{1};
-    % tömörített út kiemelve
-    \draw[compressed] (g) -- (h)
+    \draw[mstedge] (g) -- (h)
       node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{3};
     \draw[mstedge] (e) -- (f)
       node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize]{4};
@@ -58,11 +49,11 @@
       node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{7};
     \draw[mstedge] (a) -- (d)
       node[midway, left=3pt, fill=white, inner sep=1pt, font=\scriptsize]{9};
-    \draw[compressed] (e) -- (h)
+    \draw[mstedge] (e) -- (h)
       node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{2};
 
     % --- Non-tree edges (thin) ---
-    \draw[otheredge] (b) -- (g)
+    \draw[otheredge, draw=red] (b) -- (g)
       node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{8};
     \draw[otheredge] (a) -- (b)
       node[midway, above=3pt, fill=white, inner sep=1pt, font=\scriptsize]{10};
@@ -72,7 +63,8 @@
       node[midway, left=2pt, fill=white, inner sep=1pt, font=\scriptsize]{12};
     \draw[otheredge] (f) -- (h)
       node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{13};
-    \draw[otheredge, draw=red, line width=1.2pt] (e) -- (g)
+    % aktuálisan vizsgált nem-fa él
+    \draw[otheredge, line width=1.2pt] (e) -- (g)
       node[midway, above=2pt, fill=white, inner sep=1pt, font=\scriptsize]{6};
 
     % --- DFS (IN, OUT) pairs ---
@@ -84,8 +76,6 @@
     \node[font=\scriptsize] at ($(f)+(0.0,-0.6)$) {(3, 12)};
     \node[font=\scriptsize] at ($(g)+(0,0.6)$) {(6, 7)};
     \node[font=\scriptsize] at ($(h)+(0.4,0.5)$) {(5, 8)};
-
-    \node[font=\scriptsize, below right=0.1cm of g] {$(g,h,e)$ út tömörítve};
 
     \end{tikzpicture}
   \end{column}
