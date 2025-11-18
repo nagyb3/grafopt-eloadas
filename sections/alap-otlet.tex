@@ -6,7 +6,7 @@
 %    \item Observe that each of the m - n + 1 edges in E\\ET induces a fundamental cycle with the edges in T.
     \item Figyeljük meg, hogy mindegyik m - n + 1 darab él $E \setminus E_T$-ben egy fundamentális kört indukál T éleivel.
 %    \item Then for any MST edge there is a subset of cycles containing that edge, and the cycle induced by the lightest non-MST edge is the replacement for it
-    \item Then for any MST edge there is a subset of cycles containing that edge, and the cycle induced by the lightest non-MST edge is the replacement for it
+    \item Ekkor bármely MST élt tartalmazóan létezik a ciklusok egy részhalmaza, és a legkönnyebb nem-MST él által indukált ciklus helyettesíti azt. 
   \end{itemize}
   \centering
   \begin{tikzpicture}[
@@ -70,7 +70,7 @@
   \begin{enumerate}
     \item Kijelölünk egy tétszőleges csúcsot a fa gyökerének.
     % \item Assign the parent and the first and last visited numbers to each vertex according to depth-first search over T
-    \item A mélységi bejárás alapján minden csúcsnak rendeljük hozzá a szülőjét, valamint a belépési és kilépési sorszámát.
+    \item A mélységi bejárás alapján minden csúcsnak rendeljük hozzá a szülőjét, valamint a belépési (IN[v]) és kilépési (OUT[v]) sorszámát.
     % \item Traverse the fundamental cycle induced by each non-tree edge in order of ascending weight
     \item Járjuk be a fundamentális kört, amelyet egy nem-fa él indukált.
     % \item Compress paths to skip edges already assigned replacements
