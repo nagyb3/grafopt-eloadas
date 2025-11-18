@@ -1,18 +1,30 @@
-\begin{frame}{Példa lefutás - $(e,g)$ fundamentális köre}
+\begin{frame}{Példa lefutás - első nem-fa él $(e,g)$ folyt.}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Fundamentális kör:}
+    \textbf{Első nem-fa él $(e,g)$:} (folyt.)
     \begin{itemize}
-      \item A nem-fa él $(e,g)$ az MST-ben a
-            $g \rightarrow h \rightarrow e \rightarrow g$ kört indukálja.
-      \item \texttt{PathLabel(g, e, (e,g))}:
-        \begin{itemize}
-          \item induló csúcs: $v \leftarrow g$,
-          \item $\texttt{find(g)} = g$  $\Rightarrow$ még nincs tömörítve,
-          \item $R(g,h) = (e,g)$, majd \texttt{link(g)}.
-        \end{itemize}
-      \item A $(g,h)$ MST-él elsőként kap csereélt.
+      % \item A nem-fa él $(e,g)$ az MST-ben a
+      %       $g \rightarrow h \rightarrow e \rightarrow g$ kört indukálja.
+      % \item \texttt{PathLabel(g, e, (e,g))}:
+      %   \begin{itemize}
+      %     \item induló csúcs: $v \leftarrow g$,
+      %     \item $\texttt{find(g)} = g$  $\Rightarrow$ még nincs tömörítve,
+      %     \item $R(g,h) = (e,g)$, majd \texttt{link(g)}.
+      %   \end{itemize}
+      % \item A $(g,h)$ MST-él elsőként kap csereélt.
+
+      % \item The next vertex is h since it is the parent of g (line 16) and then k2 is updated to IN[h].
+      \item A követekező él a bejárásban h lesz, mivel ő g szülője (find(g) = h). $k_2$-t frissítjük IN[h]-vel. (IN[h] = 5)
+      
+      % \item Continuing the traversal with h (line 12), again line 14 assigns (g,e) to (h,e) where e is the parent of h.
+      \item Mivel (e, h) él még nem lett tömörítve (find(h) = h), ezért (h, e) csereélének (g, e) élt adjuk.
+      
+      % \item The disjoint sets are linked (line 15) so h’s disjoint set gets e’s label. This compresses the subpath (g,h,e).
+      \item h és e diszjunkt halmazait link-eljük úgy, hogy h diszjunkt halmaza kapja meg e képviselőjét. Ez tömöríti a (g, h, e) részutat.
+      
+      % \item Now the next vertex is e so k2 gets IN[e] making it equal to k1, thus ending the while loop.
+      \item A bejárásban e lesz a következő él, szóval $k_2$ megkapja IN[e]-t (= 4), már egyenlő lesz $k_1$-el (= 4), ezzel leállítva a while ciklust.
     \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}

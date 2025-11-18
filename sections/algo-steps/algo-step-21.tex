@@ -8,9 +8,9 @@
       % \item We get the RIGHT branch plan with k1 = OUT[g], k2 = IN[b] and so again k1 <k2
       \item RIGHT plan-t kapjuk meg. $k_1$ = OUT[g], $k_2$ = IN[b], szóval $k_1$ < $k_2$.
       % \item The traversal begins with b(line 11) and since b has not yet been visited then (b,e) gets the non-MST edge (b,g), where e is the parent of b.
-      \item A bejárást b-vel kezdjük és mivel b-t még nem látogattuk meg ezért (b, e) él a a (b, g) nem-MST élt kapja meg csereélként.
+      \item A bejárást b-vel kezdjük és mivel b-t még nem látogattuk meg ezért (b, e) él a (b, g) nem-MST élt kapja meg csereélként.
       % \item The disjoint set is linked (line 15) so b’s disjoint set gets e’s label and the subpath (b,e) is compressed.
-      \item b és e diszjunkt halmazait link-eljük. A (b, e) subpath compressed lesz.
+      \item b és e diszjunkt halmazait link-eljük. Ezzel tömörítjük a (b, e) részutat.
     \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}

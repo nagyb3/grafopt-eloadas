@@ -11,7 +11,7 @@
       % \item We get the LEFT branch plan (line 8) with k1 = OUT[g], k2 = IN[b] so k1 < k2 and start the traversal with g.
       \item Megkapjuk LEFT ágtervet, $k_1$ = OUT[g] és $k_2$ = IN[b]-vel, szóval $k_1$ < $k_2$ és megkezdjük a bejárást g-vel kezdve.
       % \item Now observe that the disjoint sets had previously compressed the subpath (g,h,e). Thus find(g) ̸= g. This jumps the walk to the LCA, which is vertex e, and updates k1 to OUT[e] to end the while loop.
-      \item Ekkor figyeljük meg, hogy a diszjunkt halmazok már tömörítették a (g, h, e) részútat, ezért find(g) != g. ... 
+      \item Ekkor figyeljük meg, hogy a diszjunkt halmazok tömörítették már a (g, h, e) részútat, ezért find(g) != g. ... 
     \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}

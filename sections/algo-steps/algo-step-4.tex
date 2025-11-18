@@ -1,22 +1,25 @@
-\begin{frame}{Példa lefutás - $(e,g)$ és úttömörítés}
+\begin{frame}{Példa lefutás - első nem-fa él $(e,g)$ folyt.}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Második iteráció:}
+    \textbf{Első nem-fa él $(e,g)$:} (folyt.)
     \begin{itemize}
-      \item \texttt{link(g)} után \texttt{find(g)} már $h$-t adja vissza:
-            a $(g,h)$ szakasz tömörült.
-      \item Következő csúcs: $v \leftarrow h$, itt $\texttt{find(h)} = h$,
-            ezért $R(h,e) = (e,g)$, majd \texttt{link(h)}.
-      \item A teljes $(g,h,e)$ út egyetlen képviselő alá kerül.
+      % \item \texttt{link(g)} után \texttt{find(g)} már $h$-t adja vissza:
+      %       a $(g,h)$ szakasz tömörült.
+      % \item Következő csúcs: $v \leftarrow h$, itt $\texttt{find(h)} = h$,
+      %       ezért $R(h,e) = (e,g)$, majd \texttt{link(h)}.
+      % \item A teljes $(g,h,e)$ út egyetlen képviselő alá kerül.
+
+      % \item The oppositely-oriented edge (e,g) input at line 34 is not processed because eis the ancestor of g and we have already followed the path from descendent to ancestor.
+      \item A fordított (e, g) éllel PathLabel hívás nem fog feldolgozódni, mivel e felmenője g-nek.
     \end{itemize}
-    \vspace{0.5em}
-    \textbf{Következmény:}
-    \begin{itemize}
-      \item Későbbi nem-fa élek futásánál a \texttt{find} hívások
-            \alert{átugorják} ezt az utat.
-      \item Minden MST él legfeljebb egyszer kerül bejárásra.
-    \end{itemize}
+    % \vspace{0.5em}
+    % \textbf{Következmény:}
+    % \begin{itemize}
+    %   \item Későbbi nem-fa élek futásánál a \texttt{find} hívások
+    %         \alert{átugorják} ezt az utat.
+    %   \item Minden MST él legfeljebb egyszer kerül bejárásra.
+    % \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}
     \centering
