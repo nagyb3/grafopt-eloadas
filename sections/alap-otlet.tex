@@ -6,7 +6,10 @@
 %    \item Observe that each of the m - n + 1 edges in E\\ET induces a fundamental cycle with the edges in T.
     \item Figyeljük meg, hogy mindegyik m - n + 1 darab él $E \setminus E_T$-ben egy fundamentális kört indukál T éleivel.
 %    \item Then for any MST edge there is a subset of cycles containing that edge, and the cycle induced by the lightest non-MST edge is the replacement for it
-    \item Csereél a fa egy konkrét éléhez: az a legkisebb súlyú él, amely egy olyan kört indukál a fán, amibe benne van az adott MST él. 
+    \begin{block}{1. Állítás}
+      Az a legkisebb súlyú nem-MST él, amely egy $e$ MST-beli élt tartalmazó kört indukál, az az $e$ él csereéle.
+      % The lowest weight non-MST edge that induces a cycle containing an MST edge e is the replacement for e
+    \end{block} 
   \end{itemize}
   \centering
   \begin{tikzpicture}[
@@ -62,7 +65,7 @@
   \end{tikzpicture}
 
   \medskip
-  \small Itt: az $(e,g)$ él az $(e,h)$ és a $(g,h)$ élek minimális költségű csereéle.
+  % \small Itt: az $(e,g)$ él az $(e,h)$ és a $(g,h)$ élek minimális költségű csereéle.
 \end{frame}
 
 \begin{frame}{Az algoritmus alapötlete 2.}

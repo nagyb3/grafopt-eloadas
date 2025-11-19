@@ -85,7 +85,7 @@
       \begin{block}{Definíció:}
         A csereél az a legkisebb súlyú él, amely újra összeköti a minimális feszítőfát egy minimális feszítőfabeli él törlése után.
       \end{block}
-      Probléma alkalmazása: utakon balesetek, kommunikációs hálózatokban kábel szakadás
+      A probléma alkalmazása: utakon balesetek, kommunikációs hálózatokban kábel szakadás esetén
       \vspace{6pt}
     \column{0.40\textwidth}
       \begin{center}
@@ -99,8 +99,8 @@
   \begin{itemize}
     \item Adottak:
     \begin{itemize}
-      \item A gráf minimális feszítőfája
-      \item A nem feszítőfabeli élek RENDEZVE
+      \item A gráf és a minimális feszítőfája (MST)
+      \item A nem feszítőfabeli élek súlyuk szerint \textbf{növekvő sorba rendezve}
     \end{itemize}
     \item Keressük:
     \begin{itemize}
@@ -118,6 +118,12 @@
     \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
     \vspace{0.5em}
     (m: élek száma, n: csúcsok száma)
+    \vspace{0.5em}
+    \item Megjegyzés az élek rendezettségére:
+    \begin{itemize}
+      \item Ha az MST-t Kruskal algoritmussal kaptuk meg akkor rendezve vannak már a nem-MST élek.
+      \item Ha még nincsenek rendezve, akkor képesek vagyunk rendezni őket $ \bigO (n) $ időben, ha ismerünk egy felsőkorlátot az élsúlyok értékeire. %% TODO pl radix sort (check hogy ez tényleg jó)
+    \end{itemize}
   \end{itemize}
   \item A cikk előtt lehetett tudni, hogy ez elméletileg lehetőséges, de ez az első algoritmikus megoldás erre lineáris időkomplexitással.
 \end{itemize}
@@ -168,11 +174,13 @@
 \begin{frame}{Legfontosabb él (Most Vital Edge)}
 \small
 \begin{itemize}
-  \item \textbf{Definíció:} Az az él, amelynek eltávolítása a legnagyobb növekedést okozza az MST (minimális feszítőfa) súlyában.
-  \item \textbf{Az algoritmus hozzájárulása:}
+  \begin{block}{Definíció:}
+    Az az él, amelynek eltávolítása a legnagyobb növekedést okozza az MST (minimális feszítőfa) súlyában.  
+  \end{block}
+  \item \textbf{Az algoritmus eredménye:}
     \begin{itemize}
-      \item A csereélek meghatározása után a legfontosabb él kiválasztható $ \bigO (n)$ időben. Csak meg kell keresni, hogy melyik MST-beli él súlyának a különbsége legnagyobb a csereélének súlyával.
-      \item Így: a legfontosabb él kiszámítható $ \bigO (m + n)$ időben, ha adott az eredeti MST és a nem MST élek rendezve vannak.
+      \item Az összes csereél meghatározása után a legfontosabb él kiválasztható $ \bigO (n)$ időben. Ehhez csak meg kell keresni, hogy melyik MST-beli él súlyának a különbsége legnagyobb a csereélének súlyával.
+      \item Így: a \textbf{legfontosabb él kiszámítható $ \bigO (m + n)$ időben}, ha adott az eredeti MST és a nem MST élek rendezve vannak.
     \end{itemize}
 \end{itemize}
 \end{frame}
