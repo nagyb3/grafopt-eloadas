@@ -1,4 +1,4 @@
-\begin{frame}{Időkomplexitás bizonyítása}
+\begin{frame}{Időkomplexitás bizonyítása (1.)}
   \small
   \begin{block}{Tétel:}
     % Given the Minimum Spanning Tree for an undirected, weighted graph G = (V,E), and non-tree edges sorted by weight, then Algorithm 1 finds all minimum cost replacement edges of the Minimum Spanning Tree of G in O(m+ n) time and O(m+ n) space.
@@ -13,12 +13,46 @@
     % \item Initializing the replacement edges of the MST edges takes $ \bigO (n) $ time.
     \item Csereélek inicializálása minden MST élhez: $ \bigO (n) $ idő.
     % \item There are m - n + 1 = O(m) non-MST edges read in ascending order by weight, taking O(m) time.
-    \item $m - n + 1 = \bigO(m) $ nem-MST él olvasás van, növekvő sorban súly szerint: $ \bigO (m) $ időkomplexitás.
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Időkomplexitás bizonyítása}
-  \small
-  \textbf{Bizonyítás: (folyt.):}\\
-  
+\begin{frame}{Időkomplexitás bizonyítása (2.)}
+  \scriptsize
+  \begin{block}{3. Állítás:}
+    % Algorithm 1 traverses only those edges in the unique cycle induced by a given non-MST edge.
+    Az algoritmus csak azokat az éleket járja be, amelyek benne vannak a nem-MST él által indukált körben.
+  \end{block}
+
+  \begin{block}{4. Állítás:}
+    % Algorithm 1 updates disjoint sets in O(m + n) time and O(n) space.
+    Az algoritmus $ \bigO (m + n) $ időben és $ \bigO (n) $ tárhellyel frissíti a diszjunkt halmazokat.
+  \end{block}
+  \begin{itemize}
+    \item $m - n + 1 = \bigO(m) $ nem-MST él olvasás van, növekvő sorban súly szerint: $ \bigO (m) $ időkomplexitás.
+    \item Minden nem-MST élhez esetében a 3. állítás szerint, az algoritmus kizárólag az adott él által meghatározott fundamentális kör éleire hivatkozhat.
+  \end{itemize}  
+\end{frame}
+
+\begin{frame}{Időkomplexitás bizonyítása (3.)}
+  \begin{itemize}
+    \item Ezeket az éleket csak egyszer járjuk be a következő módon:
+    \begin{enumerate}
+      \item Az algoritmus minden fundamentális kört a leszármazottól az ős irányába járja be. (a DSF bejárás közben létreohozott IN és OUT tömb értékei alapján)
+      \item On visiting a vertex v, if v's set label equals v then the edge (v,P[v]) has not been visited before, otherwise it violates the path compression at lines 13-15.
+      \item When an edge (v,P[v]) gets a replacement (line 14), the disjoint set corresponding with parent P[v] is united with v’s set (line 15) using the Gabow-Tarjan disjoint set link operation.
+      \item The label of the new set is the root of the induced subtree of the MST. Therefore when a vertex v is first visited, link(v) results in the set label being the label of the set containing P[v]. 
+      \item On completing the walk along the cycle, the set label will be the label of the set containing the LCA.
+      \item Then subsequent find(v) operations return the most recent root of the subtree containing v.
+      \item Thus this sequence of disjoint set unions perform path compression on tree edges with assigned replacements. The compressed path decreases the traversal length of subsequent walks beginning at vertices lower in the DFS ordering by skipping over tree edges already with assigned replacement edges.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Időkomplexitás bizonyítása (4.)}
+  \begin{itemize}
+    \item It follows from Claim 3 and this specific ordering of the disjoint set labels that the algorithm cannot follow a path that does not close the cycle.
+    \item Then because of path compression only O(m) edges are traversed, taking O(m) time. 
+    \item Claim 4 establishes O(m+ n) time and O(n) space for all disjoint set operations. Hence it takes O(m+ n) time to find all replacement edges in T. 
+    \item The data structures are simple arrays and Gabow-Tarjan disjoint set union data structures, taking O(n) space, and all non-MST edges take O(m) space. Therefore it takes O(m+ n) time and O(m+ n) space as claimed.
+  \end{itemize}
 \end{frame}
