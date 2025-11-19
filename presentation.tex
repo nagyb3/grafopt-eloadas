@@ -175,12 +175,15 @@
 \small
 \begin{itemize}
   \begin{block}{Definíció:}
-    Az az él, amelynek eltávolítása a legnagyobb növekedést okozza az MST (minimális feszítőfa) súlyában.  
+    % The most vital edge of a connected, weighted graph Gis the edge whose removal causes the largest increase in the weight of the minimum spanning tree 
+    Egy összefüggő, súlyozott $G$ gráf legfontosabb éle, az az él, amelynek eltávolítása a legnagyobb növekedést eredményezi a minimális feszítőfa súlyában.  
   \end{block}
-  \item \textbf{Az algoritmus eredménye:}
+  % Suraweera et al. [20] prove that the most vital edge is in the minimum spanning tree.
+  \item Suraweera et al. bebizonyították, hogy a legfontosabb él a minimális feszítőfában van.
+  \item \textbf{Így az algoritmus eredménye:}
     \begin{itemize}
       \item Az összes csereél meghatározása után a legfontosabb él kiválasztható $ \bigO (n)$ időben. Ehhez csak meg kell keresni, hogy melyik MST-beli él súlyának a különbsége legnagyobb a csereélének súlyával.
-      \item Így: a \textbf{legfontosabb él kiszámítható $ \bigO (m + n)$ időben}, ha adott az eredeti MST és a nem MST élek rendezve vannak.
+      \item Ezzel: a \textbf{legfontosabb él kiszámítható $ \bigO (m + n)$ időben}, ha adott az eredeti MST és a nem MST élek rendezve vannak.
     \end{itemize}
 \end{itemize}
 \end{frame}
