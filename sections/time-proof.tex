@@ -6,30 +6,25 @@
   \end{block}
   \textbf{Bizonyítás:}\\
   Legyen T a G gráf minimális feszítőfája.
-  \begin{enumerate}
-    \item A P szülő tömb inicializálása: $ \bigO (n) $
+  \begin{itemize}
+    \item 1. A P szülő tömb inicializálása: $ \bigO (n) $
     % \item Since there are n - 1 edges in T then running DFS on T to initialize the IN and OUT arrays takes $ \bigO (n) $ time.
-    \item Mivel T-ben n - 1 él van, ezért a DFS lefuttatása T-n az IN és OUT értékek inicializálásához: $ \bigO (n) $.
+    \item 2. Mivel T-ben n - 1 él van, ezért a DFS lefuttatása T-n az IN és OUT értékek inicializálásához: $ \bigO (n) $.
     % \item Initializing the replacement edges of the MST edges takes $ \bigO (n) $ time.
-    \item Csereélek inicializálása minden MST élhez: $ \bigO (n) $ idő.
+    \item 3. Csereélek inicializálása minden MST élhez: $ \bigO (n) $ idő.
     % \item There are m - n + 1 = O(m) non-MST edges read in ascending order by weight, taking O(m) time.
-  \end{enumerate}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Időkomplexitás bizonyítása (2.)}
-  \scriptsize
   \begin{block}{3. Állítás:}
     % Algorithm 1 traverses only those edges in the unique cycle induced by a given non-MST edge.
     Az algoritmus csak azokat az éleket járja be, amelyek benne vannak a nem-MST él által indukált körben.
   \end{block}
 
-  \begin{block}{4. Állítás:}
-    % Algorithm 1 updates disjoint sets in O(m + n) time and O(n) space.
-    Az algoritmus $ \bigO (m + n) $ időben és $ \bigO (n) $ tárhellyel frissíti a diszjunkt halmazokat.
-  \end{block}
   \begin{itemize}
-    \item $m - n + 1 = \bigO(m) $ nem-MST él olvasás van, növekvő sorban súly szerint: $ \bigO (m) $ időkomplexitás.
-    \item Minden nem-MST élhez esetében a 3. állítás szerint, az algoritmus kizárólag az adott él által meghatározott fundamentális kör éleire hivatkozhat.
+    \item 4. $m - n + 1 = \bigO(m) $ nem-MST él olvasás van, növekvő sorban súly szerint: $ \bigO (m) $ időkomplexitás.
+    \item 5. Minden nem-MST élhez esetében a 3. állítás szerint, az algoritmus kizárólag az adott él által meghatározott fundamentális kör éleire hivatkozhat.
   \end{itemize}  
 \end{frame}
 
@@ -49,10 +44,17 @@
 \end{frame}
 
 \begin{frame}{Időkomplexitás bizonyítása (4.)}
+  \begin{block}{4. Állítás:}
+    % Algorithm 1 updates disjoint sets in O(m + n) time and O(n) space.
+    Az algoritmus $ \bigO (m + n) $ időben és $ \bigO (n) $ tárhellyel frissíti a diszjunkt halmazokat.
+  \end{block}
   \begin{itemize}
-    \item It follows from Claim 3 and this specific ordering of the disjoint set labels that the algorithm cannot follow a path that does not close the cycle.
-    \item Then because of path compression only O(m) edges are traversed, taking O(m) time. 
-    \item Claim 4 establishes O(m+ n) time and O(n) space for all disjoint set operations. Hence it takes O(m+ n) time to find all replacement edges in T. 
-    \item The data structures are simple arrays and Gabow-Tarjan disjoint set union data structures, taking O(n) space, and all non-MST edges take O(m) space. Therefore it takes O(m+ n) time and O(m+ n) space as claimed.
+    \item 6. It follows from Claim 3 and this specific ordering of the disjoint set labels that the algorithm cannot follow a path that does not close the cycle.
+    % \item 7. Then because of path compression only O(m) edges are traversed, taking O(m) time. 
+    \item 7. Aztán az útkompresszió miatt csak $ \bigO (m) $ élet járunk be, ami $ \bigO (m) $ idő.
+    % \item 8. Claim 4 establishes O(m + n) time and O(n) space for all disjoint set operations. Hence it takes O(m+ n) time to find all replacement edges in T. 
+    \item 8. A 4. állítás szerint az összes művelete a diszjunkt halmazokon $ \bigO (m + n) $ időkomplexitással és $ \bigO (n) $ tárhelykomplexitással jár. Ezért $ \bigO (m + n) $ időkomplexitással találjuk meg a csereéleket T-hez.
+    % \item 9. The data structures are simple arrays and Gabow-Tarjan disjoint set union data structures, taking O(n) space, and all non-MST edges take O(m) space. Therefore it takes O(m+ n) time and O(m+ n) space as claimed.
+    \item 9. A használt adatszerkezetek: egyszerű tömbök és Gabow-Tarjan diszjunkt halmaz adatszerkezetek, amik $ \bigO (n) $ tárhely. Továbbá, az összes nem-MST él $ \bigO (m) $ tárhely. Így igaz az előzőekben állított $ \bigO (m + n) $ időkomplexitás és $ \bigO (m + n) $ tárhelykomplexitás. $ \square $
   \end{itemize}
 \end{frame}
