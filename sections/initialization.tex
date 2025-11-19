@@ -1,19 +1,23 @@
 \begin{frame}[plain]{Az algoritmus pszeudokódja (inicializációk és pathlabel meghívása)}
-\scriptsize
-\begin{algorithmic}[1]
-  \State Root the MST $T$ at arbitrary vertex $v_r$ and store parents in $P$.
-  \State $P[v_r] \gets v_r$ \Comment{{root's parent points to root}}
-  \State Run DFS on $T$, setting $IN[v]$ and $OUT[v]$ to the counter value when $v$ is first and last visited.
-  \ForAll{vertices $v \in V$}
-    \State \textsc{makeset}($v$) \Comment{{Initialize the disjoint sets}}
-  \EndFor
-  \ForAll{edges $e \in E_T$}
-    \State $R_e \gets \emptyset$ \Comment{{Initialize the replacement edges}}
-  \EndFor
-  \For{$k \gets 1$ \textbf{to} $m - n + 1$}
-    \State $(v_i, v_j) \gets e_k$ \Comment{{Scan the $m - n + 1$ sorted non-MST edges}}
-    \State \textsc{PathLabel}($v_i, v_j, (v_i, v_j)$)
-    \State \textsc{PathLabel}($v_j, v_i, (v_i, v_j)$)
-  \EndFor
-\end{algorithmic}
+% \scriptsize
+% \begin{algorithmic}[1]
+%   \State Root the MST $T$ at arbitrary vertex $v_r$ and store parents in $P$.
+%   \State $P[v_r] \gets v_r$ \Comment{{root's parent points to root}}
+%   \State Run DFS on $T$, setting $IN[v]$ and $OUT[v]$ to the counter value when $v$ is first and last visited.
+%   \ForAll{vertices $v \in V$}
+%     \State \textsc{makeset}($v$) \Comment{{Initialize the disjoint sets}}
+%   \EndFor
+%   \ForAll{edges $e \in E_T$}
+%     \State $R_e \gets \emptyset$ \Comment{{Initialize the replacement edges}}
+%   \EndFor
+%   \For{$k \gets 1$ \textbf{to} $m - n + 1$}
+%     \State $(v_i, v_j) \gets e_k$ \Comment{{Scan the $m - n + 1$ sorted non-MST edges}}
+%     \State \textsc{PathLabel}($v_i, v_j, (v_i, v_j)$)
+%     \State \textsc{PathLabel}($v_j, v_i, (v_i, v_j)$)
+%   \EndFor
+% \end{algorithmic}
+
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/initialization-pseudocode.png}
+
 \end{frame}

@@ -17,7 +17,7 @@
       % \]
       % \item Következtetés: \textbf{$e$ őse $g$-nek}, ezért \texttt{PLAN = ANCESTOR}, és
       %       a \texttt{PathLabel} hívásban az útvonal \alert{$g \rightarrow h \rightarrow e$}.
-      \item Az e él g élnek a felmenője a fában, így megkapjuk $plan = ANCESTOR$-t. Továbbá $k_1$ = IN[e] = 4 és $k_2$ = IN[g] = 6, és mivel $k_1$ < $k_2$ ezért elkezdjük a bejárást.
+      \item Az e él g élnek az őse a fában, így megkapjuk $plan = ANCESTOR$-t. Továbbá $k_1$ = IN[e] = 4 és $k_2$ = IN[g] = 6, és mivel $k_1$ < $k_2$ ezért elkezdjük a bejárást.
       
       % \item The cycle traversal begins with g (line 11). Since g has not yet been visited then line 14 assigns the current non-MST edge (g,e) to (g,h), where h is the parent of g.
       \item A kör bejárás g-nél kezdjük. Mivel g-t még nem jártuk be (link(g) = g), ezért a (g, e) nem-MST élet (g, h) csereéleként mentjük el ($R(g, h) = (e, g)$).
