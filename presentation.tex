@@ -74,6 +74,11 @@
   \titlepage
 \end{frame}
 
+\begin{frame}{Tartalomjegyzék}
+  \tableofcontents
+\end{frame}
+
+\section{Áttekintés: minimális feszítőfa, csereél}
 \begin{frame}{Áttekintés: minimális feszítőfa, csereél}
   \small
   \begin{columns}[c]
@@ -95,6 +100,7 @@
   \end{columns}
 \end{frame}
 
+\section{A feladat felállása}
 \begin{frame}{A feladat felállása}
   \begin{itemize}
     \item Adottak:
@@ -113,7 +119,7 @@
 \begin{frame}{Az algoritmus időkomplexitása}
 \small
 \begin{itemize}
-  \item Az algoritmus képes megtalálni minden csereélet, ha a nem min feszítőfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
+  \item Az algoritmus képes megtalálni minden csereélet determinisztikusan, ha a nem min feszítőfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
   \begin{itemize}
     \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
     \vspace{0.5em}
@@ -122,7 +128,7 @@
     \item Megjegyzés az élek rendezettségére:
     \begin{itemize}
       \item Ha az MST-t Kruskal algoritmussal kaptuk meg akkor rendezve vannak már a nem-MST élek.
-      \item Ha még nincsenek rendezve, akkor képesek vagyunk rendezni őket $ \bigO (n) $ időben, ha ismerünk egy felsőkorlátot az élsúlyok értékeire. %% TODO pl radix sort (check hogy ez tényleg jó)
+      \item Ha még nincsenek rendezve, akkor képesek vagyunk rendezni őket lineáris időben, ha ismerünk egy felsőkorlátot az élsúlyok értékeire. %% TODO pl radix sort (check hogy ez tényleg jó)
     \end{itemize}
   \end{itemize}
   \item A cikk előtt lehetett tudni, hogy ez elméletileg lehetőséges, de ez az első algoritmikus megoldás erre lineáris időkomplexitással.
@@ -139,7 +145,7 @@
 % \end{itemize}
 % \end{frame}
 
-\begin{frame}{Cikket előtti eredmények}
+\begin{frame}{Cikk előtti eredmények}
   \small
   \begin{itemize}
     \item 1975: Spira és Pan: MST egy éléhez csereél $ \bigO (n^2) $ időben.
@@ -155,6 +161,7 @@
   \end{itemize}
 \end{frame}
 
+\section{Az algoritmus alapötlete}
 \input{sections/alap-otlet.tex}
 
 % \input{sections/vazlat.tex}
@@ -163,14 +170,18 @@
 
 \input{sections/gabow-tarjan-special-case.tex}
 
+\section{Az algoritmus pszeudokódja}
 \input{sections/initialization.tex}
 
 \input{sections/pathlabel.tex}
 
+\section{Példa lefutás}
 \input{sections/algo-step-full.tex}
 
+\section{Időkomplexitás bizonyítása}
 \input{sections/time-proof.tex}
 
+\section{Legfontosabb él (Most Vital Edge)}
 \begin{frame}{Legfontosabb él (Most Vital Edge)}
 \small
 \begin{itemize}
@@ -188,9 +199,10 @@
 \end{itemize}
 \end{frame}
 
+\section{Összegzés}
 \input{sections/osszegzes.tex}
 
-% \input{sections/bibliography.tex}
+\input{sections/bibliography.tex}
 
 \input{sections/the-end.tex}
 
