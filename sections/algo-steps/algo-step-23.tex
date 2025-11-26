@@ -6,8 +6,9 @@
     \begin{itemize}
       % \item Now observe that the disjoint sets had previously compressed the subpath (g,h,e). Thus find(g) ̸= g. This jumps the walk to the LCA, which is vertex e, and updates k1 to OUT[e] to end the while loop.
       \item Itt figyeljük meg, hogy a diszjunkt halmazok tömörítették már a (g, h, e) részútat, ezért $find(g) \neq g$. Ekkor a e-hez ugrunk (mivel $find(g) = e$ ekkor) és frissítjük $k_1$ OUT[e]-vel (OUT[e] = 11).
-      \item Ekkor mivel $k_1$ < $k_2$ nem teljesül ezért leáll a while ciklus és vége a bejárásnak.
+      \item Ekkor mivel $k_1$ < $k_2$ nem teljesül ($ 11 \nless 9 $) ezért leáll a while ciklus és vége a bejárásnak.
     \end{itemize}
+    Ezek után az előzőekben bemutatott módon folytatjuk a nem-MST élek végigfuttatását a PathLabel függvénnyel.
   \end{column}
   \begin{column}{0.54\textwidth}
     \centering

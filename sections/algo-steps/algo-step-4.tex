@@ -1,8 +1,8 @@
-\begin{frame}{Példa lefutás: első nem-fa él $(e, g)$ (3.)}
+\begin{frame}{Példa lefutás: első nem-fa él $(g, e)$ (3.)}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Első nem-fa él $(e,g)$:} (folyt.)
+    \textbf{Első nem-fa él $(g, e)$:} (folyt.)
     \begin{itemize}
       % \item \texttt{link(g)} után \texttt{find(g)} már $h$-t adja vissza:
       %       a $(g,h)$ szakasz tömörült.
@@ -11,6 +11,7 @@
       % \item A teljes $(g,h,e)$ út egyetlen képviselő alá kerül.
 
       % \item The oppositely-oriented edge (e,g) input at line 34 is not processed because eis the ancestor of g and we have already followed the path from descendent to ancestor.
+      \item PathLabel(e, g, (e, g))
       \item A fordított (e, g) éllel PathLabel hívás nem fog feldolgozódni, mivel e őse g-nek.
     \end{itemize}
     % \vspace{0.5em}

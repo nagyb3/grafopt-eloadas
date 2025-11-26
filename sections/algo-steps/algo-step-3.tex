@@ -1,8 +1,8 @@
-\begin{frame}{Példa lefutás: első nem-fa él $(e, g)$ (2.)}
+\begin{frame}{Példa lefutás: első nem-fa él $(g, e)$ (2.)}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Első nem-fa él $(e, g)$:} (folyt.)
+    \textbf{Első nem-fa él $(g, e)$:} (folyt.)
     \begin{itemize}
       % \item A nem-fa él $(e,g)$ az MST-ben a
       %       $g \rightarrow h \rightarrow e \rightarrow g$ kört indukálja.
@@ -24,7 +24,7 @@
       \item h és e diszjunkt halmazait link-eljük úgy, hogy h diszjunkt halmaza kapja meg e képviselőjét. Ez tömöríti a (g, h, e) részutat.
       
       % \item Now the next vertex is e so k2 gets IN[e] making it equal to k1, thus ending the while loop.
-      \item A bejárásban e lesz a következő él, szóval $k_2$ megkapja IN[e]-t (= 4), már egyenlő lesz $k_1$-el (= 4), ezzel leállítva a while ciklust.
+      \item A bejárásban e lesz a következő él, szóval $k_2$ megkapja IN[e]-t (= 4), már egyenlő lesz $k_1$-el (= 4), ezzel leállítva a bejárást (kilépünk a while ciklusből).
     \end{itemize}
   \end{column}
   \begin{column}{0.54\textwidth}

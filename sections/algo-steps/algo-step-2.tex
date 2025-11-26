@@ -1,8 +1,8 @@
-\begin{frame}{Példa lefutás: első nem-fa él $(e,g)$ (1.)}
+\begin{frame}{Példa lefutás: első nem-fa él $(g, e)$ (1.)}
 \begin{columns}[T]
   \begin{column}{0.46\textwidth}
     \small
-    \textbf{Első nem-fa él: $(e, g)$}
+    \textbf{Első nem-fa él: $(g, e)$}
     \begin{itemize}
       % \item Adott az MST (vastag élek) és a DFS alapján kiosztott $\text{IN}, \text{OUT}$ számok.
       % \item Vizsgáljuk a legkisebb súlyú nem-fa élet: \alert{$(e,g)$}, súlya $6$.
@@ -12,10 +12,11 @@
       % \]
       % \item Következtetés: \textbf{$e$ őse $g$-nek}, ezért \texttt{PLAN = ANCESTOR}, és
       %       a \texttt{PathLabel} hívásban az útvonal \alert{$g \rightarrow h \rightarrow e$}.
+      \item Meghívjuk PathLabel(g, e, (g, e))-t.
       \item Az e él g élnek az őse a fában, így megkapjuk $plan = ANCESTOR$-t. Továbbá $k_1$ = IN[e] = 4 és $k_2$ = IN[g] = 6, és mivel $k_1$ < $k_2$ ezért elkezdjük a bejárást.
       
       % \item The cycle traversal begins with g (line 11). Since g has not yet been visited then line 14 assigns the current non-MST edge (g,e) to (g,h), where h is the parent of g.
-      \item A kör bejárás g-nél kezdjük. Mivel g-t még nem jártuk be (link(g) = g), ezért a (g, e) nem-MST élet (g, h) csereéleként mentjük el ($R(g, h) = (e, g)$).
+      \item A kör bejárás g-nél kezdjük. Mivel g-t még nem jártuk be (link(g) = g), ezért a (g, e) nem-MST élet (g, h) csereéleként mentjük el ($R_{(g, h)} = (g, e)$).
       % \item The disjoint sets are linked (line 15) so g’s disjoint set gets h’s label. This compresses the subpath (g,h).
       \item g és h diszjunkt halmazait link-eljük úgy, hogy g diszjunkt halmaza kapja meg h képviselőjét. Ez a lépés tömöríti a (g, h) részutat.
     \end{itemize}
