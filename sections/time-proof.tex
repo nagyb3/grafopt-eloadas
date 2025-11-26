@@ -45,19 +45,19 @@
       \item Amikor egy v éllel találkozzunk, ha v képviselője a saját halmazának, akkor a (v, P[v]) éllel még nem találkoztunk. % egyébként ez megsértenő az úttömörítést (13 - 15. sor)
       
       % \item When an edge (v,P[v]) gets a replacement (line 14), the disjoint set corresponding with parent P[v] is united with v’s set (line 15) using the Gabow-Tarjan disjoint set link operation.
-      \item Amikor egy (v, P[v]) él megkapja a csereélét (14. sor), the disjoint set corresponding with parent P[v] is united with v’s set (line 15) using the link művelet.
+      \item Amikor egy (v, P[v]) él megkapja a csereélét, akkor P[v] halmazát egyesítjük v halmazával.
       
       % \item The label of the new set is the root of the induced subtree of the MST. Therefore when a vertex v is first visited, link(v) results in the set label being the label of the set containing P[v]. 
-      \item The label of the new set is the root of the induced subtree of the MST. Therefore when a vertex v is first visited, link(v) results in the set label being the label of the set containing P[v]. 
+      \item Az új halmaz címkéje a minimális feszítőfa részfájának gyökere. Ezért, amikor a v csúcsot először látogatjuk meg, a link(v) művelet azt eredményezi, hogy a halmaz címkéje a P[v]-t tartalmazó halmaz címkéje lesz.
       
       % \item On completing the walk along the cycle, the set label will be the label of the set containing the LCA.
-      \item Egy kör sétáját követően, the set label will be the label of the set containing the LCA.
+      \item Egy kör bejárását követően, a halmaz képviselője a legalacsonyabb közös ős halmazának a képviselője lesz.
       
       % \item Then subsequent find(v) operations return the most recent root of the subtree containing v.
-      \item A következő find(v) művelet visszaadja a legújabb gyökerét a részfának, amelyben v benne van.
+      \item A következő find(v) művelet visszaadja a legutóbbi gyökerét a részfának, amelyben v benne van.
       
       % \item Thus this sequence of disjoint set unions perform path compression on tree edges with assigned replacements. The compressed path decreases the traversal length of subsequent walks beginning at vertices lower in the DFS ordering by skipping over tree edges already with assigned replacement edges.
-      \item Szóval ezen diszjunkt halmaz műveletek sorrendje úttömörítést hajt végre a fa élein. Ez lerövíti a bejárást, mivel a már meglátogatott éleket a következő bájárásokban kifogjuk hagyni.
+      \item Szóval ezen diszjunkt halmaz műveletek sorrendje úttömörítést hajt végre a fa élein. Ez lerövidíti a bejárást, mivel a már meglátogatott éleket a következő bájárásokban kifogjuk hagyni.
     \end{enumerate}
   \end{itemize}
 \end{frame}
