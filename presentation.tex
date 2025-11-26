@@ -119,7 +119,7 @@
 \begin{frame}{Az algoritmus időkomplexitása}
 \small
 \begin{itemize}
-  \item Az algoritmus képes megtalálni minden csereélet, ha a nem min feszítőfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
+  \item Az algoritmus képes megtalálni minden csereélet determinisztikusan, ha a nem min feszítőfabeli élek élsúly szerint növekvő sorrendben rendezve megvannak határozva:
   \begin{itemize}
     \item \textbf{Idő- és tárbonyolultság: $ \bigO ( m + n)$} \\
     \vspace{0.5em}
@@ -128,7 +128,7 @@
     \item Megjegyzés az élek rendezettségére:
     \begin{itemize}
       \item Ha az MST-t Kruskal algoritmussal kaptuk meg akkor rendezve vannak már a nem-MST élek.
-      \item Ha még nincsenek rendezve, akkor képesek vagyunk rendezni őket $ \bigO (n) $ időben, ha ismerünk egy felsőkorlátot az élsúlyok értékeire. %% TODO pl radix sort (check hogy ez tényleg jó)
+      \item Ha még nincsenek rendezve, akkor képesek vagyunk rendezni őket lineáris időben, ha ismerünk egy felsőkorlátot az élsúlyok értékeire. %% TODO pl radix sort (check hogy ez tényleg jó)
     \end{itemize}
   \end{itemize}
   \item A cikk előtt lehetett tudni, hogy ez elméletileg lehetőséges, de ez az első algoritmikus megoldás erre lineáris időkomplexitással.
@@ -145,7 +145,7 @@
 % \end{itemize}
 % \end{frame}
 
-\begin{frame}{Cikket előtti eredmények}
+\begin{frame}{Cikk előtti eredmények}
   \small
   \begin{itemize}
     \item 1975: Spira és Pan: MST egy éléhez csereél $ \bigO (n^2) $ időben.
@@ -202,7 +202,7 @@
 \section{Összegzés}
 \input{sections/osszegzes.tex}
 
-% \input{sections/bibliography.tex}
+\input{sections/bibliography.tex}
 
 \input{sections/the-end.tex}
 
