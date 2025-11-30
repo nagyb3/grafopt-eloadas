@@ -73,11 +73,11 @@
   \begin{enumerate}
     \item Kijelölünk egy tétszőleges csúcsot a fa gyökerének.
     % \item Assign the parent and the first and last visited numbers to each vertex according to depth-first search over T
-    \item A mélységi bejárás alapján minden csúcshoz határozzuk meg a szülejét, valamint a belépési (IN[v]) és kilépési (OUT[v]) sorszámait.
+    \item Mélységi bejárás alapján minden csúcshoz határozzuk meg a szülejét, valamint a belépési (IN[v]) és kilépési (OUT[v]) sorszámait a bejárás során.
     % \item Traverse the fundamental cycle induced by each non-tree edge in order of ascending weight
     \item Járjuk be a fundamentális kört, amelyet egy nem-fa él indukált.
     % \item Compress paths to skip edges already assigned replacements
-    \item Hajtsunk végre úttömörítést (path compression), hogy kihagyjuk azon élek bejárását, amelyekhez már találtunk csereélet.
+    \item Hajtsunk végre úttömörítést (path compression), hogy kihagyjuk azon élek bejárását, amelyekhez már találtunk csereélt.
   \end{enumerate}
   A diszjunkt halmaz adatszerkezetet használjuk gyors úttömörítésre a Gabow-Tarjan-féle statikus uniófa módszer alapján.
 \end{frame}
